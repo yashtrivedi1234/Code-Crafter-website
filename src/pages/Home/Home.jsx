@@ -17,7 +17,7 @@ const Home = () => {
   return (
     <>
       <Hero />
-      <WebServicesPage />
+      {/* <WebServicesPage /> */}
       <LogoFlipGrid />
       <DigitalSolutions />
       <TeamSection />
