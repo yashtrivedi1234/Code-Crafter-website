@@ -1,0 +1,38 @@
+import React from "react";
+import Hero from "./components/Hero";
+import WebServicesPage from "./components/WebServicesPage";
+import LogoFlipGrid from "./components/LogoFlipGrid";
+import DigitalSolutions from "./components/DigitalSolutions";
+import TeamSection from "./components/TeamSection";
+import TestimonialSection from "./components/TestimonialSection";
+import TechStack from "./components/TechStack";
+import ProcessFlow from "./components/ProcessFlow";
+import ContactUs from "./components/ContactUs";
+import BlogSection from "./components/BlogSection";
+import CaseStudies from "./components/CaseStudies";
+import WebomindappsLanding from "./components/WebomindappsLanding";
+import CodeCrafterLanding from "./components/CodeCrafterLanding";
+import FAQ from "./components/Faq";
+
+const Home = () => {
+  return (
+    <>
+      <Hero />
+      <WebServicesPage />
+      <LogoFlipGrid />
+      <DigitalSolutions />
+      <TeamSection />
+      <TestimonialSection />
+      <TechStack/>
+      <ProcessFlow />
+      <ContactUs />
+      <BlogSection />
+      <CaseStudies />
+      {/* <WebomindappsLanding /> */}
+      <CodeCrafterLanding />
+      <FAQ />
+    </>
+  );
+};
+
+export default Home;
