@@ -56,128 +56,333 @@ const features = [
   },
 ];
 
+const TEAL = "#175E75";
+
 export default function DigitalSolutions() {
   const [activeIndex, setActiveIndex] = useState(0);
   const active = features[activeIndex];
 
   return (
     <section
-      className="min-h-screen bg-[#f8fafc] text-gray-900 px-4 sm:px-6 py-16 md:py-24 overflow-hidden relative"
-      style={{ fontFamily: "'DM Sans', sans-serif" }}
+      className="min-h-screen bg-[#f8fafc] text-gray-900 overflow-hidden relative"
+      style={{
+        fontFamily: "'DM Sans', sans-serif",
+        padding: "clamp(3rem,8vw,6rem) clamp(1rem,5vw,2rem)",
+      }}
     >
-      <style>{`@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&family=Syne:wght@700;800&display=swap');`}</style>
+      <style>{`
+        
+        /* ── Fluid heading ── */
+        .ds-hero-heading {
+          font-size: clamp(2rem, 6vw, 3.75rem);
+          line-height: 1.1;
+          font-family: 'Syne', sans-serif;
+          font-weight: 800;
+          max-width: 42rem;
+          margin-inline: auto;
+        }
+
+        /* ── Main grid: stack on mobile, 12-col on lg ── */
+        .ds-layout {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: clamp(1.5rem, 4vw, 3.5rem);
+          align-items: start;
+        }
+        @media (min-width: 1024px) {
+          .ds-layout {
+            grid-template-columns: 5fr 7fr;
+          }
+        }
+
+        /* ── Mobile: image first, list second ── */
+        .ds-list-panel  { order: 2; }
+        .ds-image-panel { order: 1; }
+        @media (min-width: 1024px) {
+          .ds-list-panel  { order: 1; }
+          .ds-image-panel { order: 2; position: sticky; top: clamp(1rem, 2vw, 2.5rem); }
+        }
+
+        /* ── Feature items ── */
+        .ds-item-inner {
+          padding: clamp(0.875rem,2.5vw,1.5rem) clamp(1rem,3vw,1.5rem);
+          display: flex;
+          align-items: flex-start;
+          gap: clamp(0.75rem,2vw,1.25rem);
+        }
+        .ds-item-num {
+          font-size: clamp(0.65rem,1vw,0.7rem);
+          font-weight: 700;
+          letter-spacing: 0.15em;
+          margin-top: 2px;
+          flex-shrink: 0;
+        }
+        .ds-item-title {
+          font-size: clamp(0.875rem,1.8vw,1.0625rem);
+          font-weight: 700;
+          line-height: 1.35;
+        }
+        .ds-item-short {
+          font-size: clamp(0.7rem,1.2vw,0.75rem);
+          font-weight: 600;
+          margin-top: 2px;
+        }
+        .ds-item-desc {
+          font-size: clamp(0.75rem,1.3vw,0.875rem);
+          line-height: 1.7;
+          margin-top: clamp(0.5rem,1vw,0.75rem);
+          padding-right: clamp(0,1vw,0.5rem);
+        }
+        .ds-tag {
+          font-size: clamp(0.58rem,0.9vw,0.625rem);
+          padding: 2px clamp(6px,1vw,8px);
+          border-radius: 999px;
+          border: 1px solid;
+          font-weight: 700;
+          flex-shrink: 0;
+          align-self: flex-start;
+          letter-spacing: 0.04em;
+        }
+
+        /* ── Image panel ── */
+        .ds-img-wrap {
+          position: relative;
+          border-radius: clamp(12px,2vw,20px);
+          overflow: hidden;
+          /* Fluid aspect — landscape on mobile, more square on desktop */
+          aspect-ratio: 16/9;
+          box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+          background: #e2e8f0;
+        }
+        @media (min-width: 1024px) {
+          .ds-img-wrap { aspect-ratio: 4/3; }
+        }
+
+        /* Ghost number */
+        .ds-ghost-num {
+          position: absolute;
+          top: clamp(0.75rem,2vw,1.25rem);
+          left: clamp(1rem,2.5vw,2rem);
+          z-index: 20;
+          font-family: 'Syne', sans-serif;
+          font-weight: 800;
+          font-size: clamp(3rem,10vw,6.25rem);
+          line-height: 1;
+          color: rgba(255,255,255,0.35);
+          pointer-events: none;
+          user-select: none;
+        }
+
+        /* Badges */
+        .ds-tag-badge {
+          position: absolute;
+          bottom: clamp(0.75rem,2vw,1.5rem);
+          left: clamp(0.75rem,2vw,1.5rem);
+          z-index: 20;
+          background: ${TEAL};
+          color: white;
+          font-size: clamp(0.55rem,1vw,0.6875rem);
+          font-weight: 700;
+          padding: clamp(4px,0.8vw,8px) clamp(10px,1.5vw,16px);
+          border-radius: 999px;
+          text-transform: uppercase;
+          letter-spacing: 0.1em;
+        }
+        .ds-title-badge {
+          position: absolute;
+          bottom: clamp(0.75rem,2vw,1.5rem);
+          right: clamp(0.75rem,2vw,1.5rem);
+          z-index: 20;
+          background: rgba(255,255,255,0.95);
+          backdrop-filter: blur(8px);
+          color: ${TEAL};
+          font-size: clamp(0.65rem,1.2vw,0.8125rem);
+          font-weight: 700;
+          padding: clamp(6px,1vw,12px) clamp(10px,1.5vw,20px);
+          border-radius: clamp(10px,1.5vw,16px);
+          border: 1px solid rgba(23,94,117,0.1);
+          max-width: clamp(130px,30vw,220px);
+          text-align: right;
+          line-height: 1.3;
+        }
+
+        /* Corner accents */
+        .ds-corner-tl {
+          position: absolute; top: clamp(-6px,-1vw,-8px); left: clamp(-6px,-1vw,-8px);
+          width: clamp(28px,5vw,48px); height: clamp(28px,5vw,48px);
+          border-top: 2px solid ${TEAL}; border-left: 2px solid ${TEAL};
+          border-radius: 4px 0 0 0; z-index: 20;
+        }
+        .ds-corner-br {
+          position: absolute; bottom: clamp(-6px,-1vw,-8px); right: clamp(-6px,-1vw,-8px);
+          width: clamp(28px,5vw,48px); height: clamp(28px,5vw,48px);
+          border-bottom: 2px solid ${TEAL}; border-right: 2px solid ${TEAL};
+          border-radius: 0 0 4px 0; z-index: 20;
+        }
+
+        /* Progress dots */
+        .ds-dots {
+          display: flex;
+          gap: clamp(6px,1vw,10px);
+          justify-content: center;
+          margin-top: clamp(1rem,2.5vw,2rem);
+          padding-inline: 4px;
+        }
+        .ds-dot-btn {
+          outline: none;
+          background: none;
+          border: none;
+          cursor: pointer;
+          padding: 4px;
+          border-radius: 999px;
+        }
+        .ds-dot-btn:focus-visible {
+          outline: 2px solid ${TEAL};
+          outline-offset: 2px;
+        }
+
+        /* Header margin */
+        .ds-header {
+          margin-bottom: clamp(2rem,5vw,5rem);
+        }
+
+        /* Eyebrow */
+        .ds-eyebrow {
+          font-size: clamp(0.6rem,1vw,0.75rem);
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: 0.2em;
+          color: ${TEAL};
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: clamp(8px,1.5vw,12px);
+          margin-bottom: clamp(0.75rem,1.5vw,1rem);
+        }
+        .ds-eyebrow-line {
+          display: block;
+          height: 2px;
+          background: ${TEAL};
+          width: clamp(20px,4vw,32px);
+        }
+
+        /* Very small screens */
+        @media (max-width: 359px) {
+          .ds-item-inner { padding: 0.75rem; gap: 0.625rem; }
+          .ds-ghost-num { font-size: 2.5rem; }
+        }
+
+        /* Landscape phones */
+        @media (max-height: 500px) and (orientation: landscape) {
+          .ds-img-wrap { aspect-ratio: 21/9; }
+        }
+      `}</style>
 
       {/* Background grid */}
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.04] z-0"
         style={{
-          backgroundImage:
-            "linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px)",
+          backgroundImage: "linear-gradient(#000 1px,transparent 1px),linear-gradient(90deg,#000 1px,transparent 1px)",
           backgroundSize: "60px 60px",
         }}
       />
 
-      {/* Glow blob - Synced to Teal */}
+      {/* Glow blob */}
       <motion.div
-        className="pointer-events-none absolute top-[-100px] right-[-100px] md:top-[-200px] md:right-[-200px] w-[400px] md:w-[600px] h-[400px] md:h-[600px] rounded-full z-0"
+        className="pointer-events-none absolute top-0 right-0 rounded-full z-0"
         style={{
+          width: "clamp(260px,50vw,600px)",
+          height: "clamp(260px,50vw,600px)",
           background: `radial-gradient(circle, rgba(23,94,117,0.15) 0%, transparent 70%)`,
+          transform: "translate(30%,-30%)",
         }}
         animate={{ scale: [1, 1.1, 1], opacity: [0.6, 1, 0.6] }}
         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
       />
 
       <div className="max-w-7xl mx-auto relative z-10">
+
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
-          className="mb-12 md:mb-20 flex flex-col items-center text-center"
+          className="ds-header text-center"
         >
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <div className="w-6 md:w-8 h-[2px] bg-[#175E75]" />
-            <span className="text-[#175E75] text-[10px] md:text-xs font-bold uppercase tracking-[0.2em]">
-              What We Offer
-            </span>
-            <div className="w-6 md:w-8 h-[2px] bg-[#175E75]" />
-          </div>
-          <h1
-            className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight max-w-3xl mx-auto"
-            style={{ fontFamily: "'Syne', sans-serif" }}
-          >
-            End-to-End{" "}
-            <span className="relative inline-block whitespace-nowrap">
-              <span className="relative z-10 text-[#175E75]">Digital</span>
-              <motion.span
-                className="absolute inset-0 bg-[#175E75]/10 rounded-md -mx-1 md:-mx-2"
-                animate={{ scaleX: [0.95, 1.05, 0.95] }}
-                transition={{ duration: 3, repeat: Infinity }}
-              />
-            </span>{" "}
-            Solutions
-            <br className="hidden sm:block" />
-            <span className="sm:ml-2">for Growing Businesses</span>
-          </h1>
+          <p className="ds-eyebrow">
+            <span className="ds-eyebrow-line" />
+            What We Offer
+            <span className="ds-eyebrow-line" />
+          </p>
+         <h1 className="ds-hero-heading">
+  End-to-End{" "}
+  <span className="relative inline-block whitespace-nowrap">
+    <span className="relative z-10" style={{ color: TEAL }}>Digital</span>
+    <motion.span
+      className="absolute inset-0 rounded-md -mx-1"
+      style={{ background: "rgba(23,94,117,0.1)" }}
+      animate={{ scaleX: [0.95, 1.05, 0.95] }}
+      transition={{ duration: 3, repeat: Infinity }}
+    />
+  </span>{" "}
+  Solutions{" "}
+  <span>for Growing Businesses</span>
+</h1>
         </motion.div>
 
-        {/* Main Layout */}
-        <div className="flex flex-col lg:grid lg:grid-cols-12 gap-10 lg:gap-14 items-start">
-          
-          {/* Feature List - Ordered 2nd on mobile, 1st on desktop */}
-          <div className="order-2 lg:order-1 lg:col-span-5 flex flex-col gap-3 md:gap-2 w-full">
+        {/* Main layout */}
+        <div className="ds-layout">
+
+          {/* Feature list */}
+          <div className="ds-list-panel flex flex-col gap-2">
             {features.map((feature, index) => {
               const isActive = activeIndex === index;
-
               return (
                 <motion.div
                   key={feature.id}
                   onClick={() => setActiveIndex(index)}
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter" || e.key === " ") {
-                      e.preventDefault();
-                      setActiveIndex(index);
-                    }
-                  }}
+                  onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setActiveIndex(index); } }}
                   tabIndex={0}
                   role="button"
                   aria-expanded={isActive}
                   initial={{ opacity: 0, x: -30 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="relative group cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-[#175E75] focus-visible:ring-offset-2 rounded-xl"
+                  className="relative group cursor-pointer outline-none focus-visible:ring-2 rounded-xl"
+                  style={{ "--tw-ring-color": TEAL }}
                 >
                   <motion.div
-                    className="absolute inset-0 rounded-xl bg-[#175E75]/[0.03] border border-[#175E75]/10"
+                    className="absolute inset-0 rounded-xl"
+                    style={{ background: "rgba(23,94,117,0.03)", border: "1px solid rgba(23,94,117,0.1)" }}
                     initial={false}
                     animate={{ opacity: isActive ? 1 : 0 }}
                     transition={{ duration: 0.3 }}
                   />
 
-                  <div className="relative z-10 px-5 py-5 sm:px-6 sm:py-6 flex items-start gap-4 sm:gap-5">
+                  <div className="ds-item-inner relative z-10">
                     <motion.span
-                      className="text-[11px] font-bold tracking-widest mt-1 shrink-0"
-                      animate={{ color: isActive ? "#175E75" : "#9ca3af" }}
+                      className="ds-item-num shrink-0"
+                      animate={{ color: isActive ? TEAL : "#9ca3af" }}
                       transition={{ duration: 0.3 }}
                     >
                       {feature.number}
                     </motion.span>
 
                     <div className="flex-1 min-w-0">
-                      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-3 mb-1">
+                      <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1 mb-0.5">
                         <motion.h3
-                          className="text-base sm:text-[17px] font-bold leading-tight"
+                          className="ds-item-title"
                           animate={{ color: isActive ? "#111827" : "#6b7280" }}
                           transition={{ duration: 0.3 }}
                         >
                           {feature.title}
                         </motion.h3>
                         <motion.span
-                          className="text-[10px] px-2 py-0.5 rounded-full border shrink-0 font-bold self-start sm:self-auto"
+                          className="ds-tag"
                           animate={{
                             borderColor: isActive ? "rgba(23,94,117,0.3)" : "rgba(0,0,0,0.1)",
-                            color: isActive ? "#175E75" : "#6b7280",
-                            backgroundColor: isActive ? "rgba(23,94,117,0.05)" : "transparent"
+                            color: isActive ? TEAL : "#6b7280",
+                            backgroundColor: isActive ? "rgba(23,94,117,0.05)" : "transparent",
                           }}
                           transition={{ duration: 0.3 }}
                         >
@@ -186,7 +391,7 @@ export default function DigitalSolutions() {
                       </div>
 
                       <motion.p
-                        className="text-[12px] font-semibold"
+                        className="ds-item-short"
                         animate={{ color: isActive ? "#4b5563" : "#9ca3af" }}
                         transition={{ duration: 0.3 }}
                       >
@@ -195,14 +400,11 @@ export default function DigitalSolutions() {
 
                       <motion.div
                         initial={false}
-                        animate={{
-                          height: isActive ? "auto" : 0,
-                          opacity: isActive ? 1 : 0,
-                        }}
+                        animate={{ height: isActive ? "auto" : 0, opacity: isActive ? 1 : 0 }}
                         transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
                         style={{ overflow: "hidden" }}
                       >
-                        <p className="text-[13px] sm:text-[14px] text-gray-600 leading-relaxed mt-3 pr-2">
+                        <p className="ds-item-desc text-gray-600">
                           {feature.description}
                         </p>
                       </motion.div>
@@ -210,109 +412,92 @@ export default function DigitalSolutions() {
 
                     <motion.div
                       className="shrink-0 mt-1 hidden sm:block"
-                      animate={{
-                        x: isActive ? 0 : -6,
-                        opacity: isActive ? 1 : 0,
-                        color: "#175E75",
-                      }}
+                      animate={{ x: isActive ? 0 : -6, opacity: isActive ? 1 : 0, color: TEAL }}
                       transition={{ duration: 0.3 }}
                     >
                       <svg width="16" height="16" viewBox="0 0 14 14" fill="none">
-                        <path
-                          d="M1 7h12M7 1l6 6-6 6"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
+                        <path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
                     </motion.div>
                   </div>
 
-                  {/* Divider line hidden if active to look cleaner */}
-                  <div className={`h-[1px] bg-gray-200 mx-6 transition-opacity ${isActive ? 'opacity-0' : 'opacity-100'}`} />
+                  <div className={`h-px bg-gray-200 mx-5 transition-opacity ${isActive ? "opacity-0" : "opacity-100"}`} />
                 </motion.div>
               );
             })}
           </div>
 
-          {/* Image Panel - Ordered 1st on mobile, 2nd on desktop. Sticky on desktop. */}
+          {/* Image panel */}
           <motion.div
-            className="order-1 lg:order-2 lg:col-span-7 relative w-full lg:sticky lg:top-10"
+            className="ds-image-panel"
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
           >
-            {/* Corner accents - Teal */}
-            <div className="absolute -top-2 -left-2 sm:-top-3 sm:-left-3 w-8 sm:w-12 h-8 sm:h-12 border-t-2 border-l-2 border-[#175E75] rounded-tl-lg z-20" />
-            <div className="absolute -bottom-2 -right-2 sm:-bottom-3 sm:-right-3 w-8 sm:w-12 h-8 sm:h-12 border-b-2 border-r-2 border-[#175E75] rounded-br-lg z-20" />
+            <div style={{ position: "relative" }}>
+              <div className="ds-corner-tl" />
+              <div className="ds-corner-br" />
 
-            <div className="relative rounded-2xl overflow-hidden aspect-[4/3] sm:aspect-video lg:aspect-[4/3] shadow-2xl bg-gray-200">
-              {/* Big ghost number */}
-              <div
-                className="absolute top-4 left-6 sm:top-5 sm:left-8 z-20 text-[60px] sm:text-[100px] font-extrabold leading-none select-none pointer-events-none"
-                style={{
-                  fontFamily: "'Syne', sans-serif",
-                  color: "rgba(255,255,255,0.35)", 
-                }}
-              >
-                {active.number}
+              <div className="ds-img-wrap">
+                {/* Ghost number */}
+                <div className="ds-ghost-num">{active.number}</div>
+
+                {/* Gradient */}
+                <div className="absolute inset-0 z-10" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0.1) 50%, transparent)" }} />
+
+                {/* Tag badge */}
+                <motion.div
+                  key={activeIndex + "-tag"}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4 }}
+                  className="ds-tag-badge"
+                >
+                  {active.tag}
+                </motion.div>
+
+                {/* Title badge */}
+                <motion.div
+                  key={activeIndex + "-title"}
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.4, delay: 0.1 }}
+                  className="ds-title-badge"
+                >
+                  {active.title}
+                </motion.div>
+
+                {/* Image crossfade */}
+                <AnimatePresence mode="wait">
+                  <motion.img
+                    key={activeIndex}
+                    src={active.image}
+                    alt={active.title}
+                    initial={{ opacity: 0, scale: 1.05 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.5, ease: "easeOut" }}
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                </AnimatePresence>
               </div>
-
-              {/* Tag badge */}
-              <motion.div
-                key={activeIndex + "-tag"}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4 }}
-                className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 z-20 bg-[#175E75] text-white text-[10px] sm:text-[11px] font-bold px-3 sm:px-4 py-1.5 sm:py-2 rounded-full backdrop-blur-sm uppercase tracking-widest shadow-lg"
-              >
-                {active.tag}
-              </motion.div>
-
-              {/* Title pill */}
-              <motion.div
-                key={activeIndex + "-title"}
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.4, delay: 0.1 }}
-                className="absolute bottom-4 right-4 sm:bottom-6 sm:right-6 z-20 bg-white/95 backdrop-blur-sm text-[#175E75] text-[12px] sm:text-[13px] font-bold px-4 py-2 sm:px-5 sm:py-3 rounded-2xl border border-[#175E75]/10 max-w-[180px] sm:max-w-[220px] text-right shadow-2xl"
-              >
-                {active.title}
-              </motion.div>
-
-              {/* Gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent z-10" />
-
-              {/* Crossfade image */}
-              <AnimatePresence mode="wait">
-                <motion.img
-                  key={activeIndex}
-                  src={active.image}
-                  alt={active.title}
-                  initial={{ opacity: 0, scale: 1.05 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.5, ease: "easeOut" }}
-                  className="absolute inset-0 w-full h-full object-cover"
-                />
-              </AnimatePresence>
             </div>
 
-            {/* Progress dots - Interactive & Accessible */}
-            <div className="flex gap-2 sm:gap-3 mt-6 sm:mt-8 justify-center">
+            {/* Progress dots */}
+            <div className="ds-dots">
               {features.map((_, i) => (
                 <button
                   key={i}
+                  className="ds-dot-btn"
                   onClick={() => setActiveIndex(i)}
                   aria-label={`Go to slide ${i + 1}`}
-                  className="outline-none focus-visible:ring-2 focus-visible:ring-[#175E75] rounded-full p-1"
                 >
                   <motion.div
-                    className="rounded-full h-2 sm:h-2.5"
+                    className="rounded-full"
+                    style={{ height: "clamp(6px,1vw,10px)" }}
                     animate={{
-                      width: activeIndex === i ? 30 : 10,
-                      backgroundColor: activeIndex === i ? "#175E75" : "#cbd5e1",
+                      width: activeIndex === i ? "clamp(20px,4vw,30px)" : "clamp(6px,1vw,10px)",
+                      backgroundColor: activeIndex === i ? TEAL : "#cbd5e1",
                     }}
                     transition={{ duration: 0.4 }}
                   />
@@ -320,7 +505,7 @@ export default function DigitalSolutions() {
               ))}
             </div>
           </motion.div>
-          
+
         </div>
       </div>
     </section>
