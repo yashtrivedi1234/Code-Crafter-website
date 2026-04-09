@@ -10,9 +10,8 @@ import ProcessFlow from "./components/ProcessFlow";
 import ContactUs from "./components/ContactUs";
 import BlogSection from "./components/BlogSection";
 import CaseStudies from "./components/CaseStudies";
-import WebomindappsLanding from "./components/WebomindappsLanding";
 import CodeCrafterLanding from "./components/CodeCrafterLanding";
-import FAQ from "./components/Faq";
+import FAQ from "./components/FAQ";
 
 const Home = () => {
   return (
