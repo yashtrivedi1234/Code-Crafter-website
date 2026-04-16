@@ -12,19 +12,19 @@ const TestimonialSection = () => {
       id: 1,
       name: "Shahid Mehdi",
       company: "Immerso Universe",
-      text: "I confidently recommend the Webomindapps team; they are the most proficient web development professionals I've worked with. Their professionalism and collaborative approach are exceptional. Beyond creativity, their technical team brings deep expertise. They consistently honored timelines and delivered exactly what we needed."
+      text: "I confidently recommend the Code Crafter team; they are the most proficient web development professionals I've worked with. Their professionalism and collaborative approach are exceptional. Beyond creativity, their technical team brings deep expertise. They consistently honored timelines and delivered exactly what we needed."
     },
     {
       id: 2,
       name: "Anusha Kurilla",
       company: "IAST Software Solutions",
-      text: "We had such a wonderful experience working with the team at Webomindapps. During a challenging time for our organization, they stepped in with full commitment and ensured our website transformation was completed smoothly and on time. Their professionalism was matched by genuine care."
+      text: "We had such a wonderful experience working with the team at Code Crafter. During a challenging time for our organization, they stepped in with full commitment and ensured our website transformation was completed smoothly and on time. Their professionalism was matched by genuine care."
     },
     {
       id: 3,
       name: "Dr. Lakshmi",
       company: "The Rhythms For Mind",
-      text: "I am very grateful to the Webomindapps team for their outstanding work on my website. From the very first meeting, they showed professionalism, patience, and a genuine willingness to guide me through every step. Although I'm not tech-savvy, they offered helpful suggestions and expert advice."
+      text: "I am very grateful to the Code Crafter team for their outstanding work on my website. From the very first meeting, they showed professionalism, patience, and a genuine willingness to guide me through every step. Although I'm not tech-savvy, they offered helpful suggestions and expert advice."
     }
   ];
 

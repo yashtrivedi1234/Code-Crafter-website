@@ -37,7 +37,7 @@ const ContactUs = () => {
               Get in Touch
             </h2>
             <h2 className="text-[clamp(1.25rem,4vw,2rem)] font-extrabold text-gray-900 leading-tight">
-              Unlock your business potential with <span className={brandText}>Webomindapps</span>
+              Unlock your business potential with <span className={brandText}>Code Crafter</span>
             </h2>
             <p className="text-lg text-gray-600 leading-relaxed">
               Step up your online presence with the proper utilization of digital assets. Our experts are ready to help you scale.

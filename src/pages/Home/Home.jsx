@@ -28,7 +28,7 @@ const Home = () => {
       <BlogSection />
       <CaseStudies />
       
-      {/* <WebomindappsLanding /> */}
+      {/* <Code CrafterLanding /> */}
       <CodeCrafterLanding />
       <ContactUs />
       <FAQ />
