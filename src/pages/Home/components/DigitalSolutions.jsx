@@ -9,7 +9,8 @@ const features = [
     short: "Built from scratch, just for you.",
     description:
       "Running a business is the result of your dreams coming true, and it's our job to express that on the internet. We develop your website from scratch with unique and efficient technologies.",
-    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&q=90",
+    image:
+      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&q=90",
     tag: "Design & Dev",
   },
   {
@@ -21,17 +22,24 @@ const features = [
       <>
         No need to go anywhere else. We deliver end-to-end services — planning,
         development, hosting, infographics,{" "}
-        <a href="#" className="font-medium text-[#175E75] underline underline-offset-2 decoration-[#175E75] hover:opacity-80 transition-colors">
+        <a
+          href="#"
+          className="font-medium text-[#175E75] underline underline-offset-2 decoration-[#175E75] hover:opacity-80 transition-colors"
+        >
           digital marketing
         </a>{" "}
         and{" "}
-        <a href="#" className="font-medium text-[#175E75] underline underline-offset-2 decoration-[#175E75] hover:opacity-80 transition-colors">
+        <a
+          href="#"
+          className="font-medium text-[#175E75] underline underline-offset-2 decoration-[#175E75] hover:opacity-80 transition-colors"
+        >
           SEO services
         </a>
         .
       </>
     ),
-    image: "https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&q=90",
+    image:
+      "https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&q=90",
     tag: "Full Stack",
   },
   {
@@ -41,7 +49,8 @@ const features = [
     short: "Creativity meets cutting-edge tech.",
     description:
       "Our team members are trained in the latest technologies. They implement their creativity in website development to ensure that your website stands out from the rest.",
-    image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=90",
+    image:
+      "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=90",
     tag: "Team",
   },
   {
@@ -51,7 +60,8 @@ const features = [
     short: "Deadlines are a promise, not a goal.",
     description:
       "We promise to deliver all projects on time and following client instructions, ensuring good quality work without any delays.",
-    image: "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=800&q=90",
+    image:
+      "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=800&q=90",
     tag: "Workflow",
   },
 ];
@@ -282,7 +292,8 @@ export default function DigitalSolutions() {
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.04] z-0"
         style={{
-          backgroundImage: "linear-gradient(#000 1px,transparent 1px),linear-gradient(90deg,#000 1px,transparent 1px)",
+          backgroundImage:
+            "linear-gradient(#000 1px,transparent 1px),linear-gradient(90deg,#000 1px,transparent 1px)",
           backgroundSize: "60px 60px",
         }}
       />
@@ -301,7 +312,6 @@ export default function DigitalSolutions() {
       />
 
       <div className="max-w-7xl mx-auto relative z-10">
-
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -314,25 +324,25 @@ export default function DigitalSolutions() {
             What We Offer
             <span className="ds-eyebrow-line" />
           </p>
-         <h1 className="ds-hero-heading">
-  End-to-End{" "}
-  <span className="relative inline-block whitespace-nowrap">
-    <span className="relative z-10" style={{ color: TEAL }}>Digital</span>
-    <motion.span
-      className="absolute inset-0 rounded-md -mx-1"
-      style={{ background: "rgba(23,94,117,0.1)" }}
-      animate={{ scaleX: [0.95, 1.05, 0.95] }}
-      transition={{ duration: 3, repeat: Infinity }}
-    />
-  </span>{" "}
-  Solutions{" "}
-  <span>for Growing Businesses</span>
-</h1>
+          <h1 className="ds-hero-heading">
+            End-to-End{" "}
+            <span className="relative inline-block whitespace-nowrap">
+              <span className="relative z-10" style={{ color: TEAL }}>
+                Digital
+              </span>
+              <motion.span
+                className="absolute inset-0 rounded-md -mx-1"
+                style={{ background: "rgba(23,94,117,0.1)" }}
+                animate={{ scaleX: [0.95, 1.05, 0.95] }}
+                transition={{ duration: 3, repeat: Infinity }}
+              />
+            </span>{" "}
+            Solutions <span>for Growing Businesses</span>
+          </h1>
         </motion.div>
 
         {/* Main layout */}
         <div className="ds-layout">
-
           {/* Feature list */}
           <div className="ds-list-panel flex flex-col gap-2">
             {features.map((feature, index) => {
@@ -341,7 +351,12 @@ export default function DigitalSolutions() {
                 <motion.div
                   key={feature.id}
                   onClick={() => setActiveIndex(index)}
-                  onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setActiveIndex(index); } }}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault();
+                      setActiveIndex(index);
+                    }
+                  }}
                   tabIndex={0}
                   role="button"
                   aria-expanded={isActive}
@@ -353,7 +368,10 @@ export default function DigitalSolutions() {
                 >
                   <motion.div
                     className="absolute inset-0 rounded-xl"
-                    style={{ background: "rgba(23,94,117,0.03)", border: "1px solid rgba(23,94,117,0.1)" }}
+                    style={{
+                      background: "rgba(23,94,117,0.03)",
+                      border: "1px solid rgba(23,94,117,0.1)",
+                    }}
                     initial={false}
                     animate={{ opacity: isActive ? 1 : 0 }}
                     transition={{ duration: 0.3 }}
@@ -380,9 +398,13 @@ export default function DigitalSolutions() {
                         <motion.span
                           className="ds-tag"
                           animate={{
-                            borderColor: isActive ? "rgba(23,94,117,0.3)" : "rgba(0,0,0,0.1)",
+                            borderColor: isActive
+                              ? "rgba(23,94,117,0.3)"
+                              : "rgba(0,0,0,0.1)",
                             color: isActive ? TEAL : "#6b7280",
-                            backgroundColor: isActive ? "rgba(23,94,117,0.05)" : "transparent",
+                            backgroundColor: isActive
+                              ? "rgba(23,94,117,0.05)"
+                              : "transparent",
                           }}
                           transition={{ duration: 0.3 }}
                         >
@@ -400,7 +422,10 @@ export default function DigitalSolutions() {
 
                       <motion.div
                         initial={false}
-                        animate={{ height: isActive ? "auto" : 0, opacity: isActive ? 1 : 0 }}
+                        animate={{
+                          height: isActive ? "auto" : 0,
+                          opacity: isActive ? 1 : 0,
+                        }}
                         transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
                         style={{ overflow: "hidden" }}
                       >
@@ -412,16 +437,33 @@ export default function DigitalSolutions() {
 
                     <motion.div
                       className="shrink-0 mt-1 hidden sm:block"
-                      animate={{ x: isActive ? 0 : -6, opacity: isActive ? 1 : 0, color: TEAL }}
+                      animate={{
+                        x: isActive ? 0 : -6,
+                        opacity: isActive ? 1 : 0,
+                        color: TEAL,
+                      }}
                       transition={{ duration: 0.3 }}
                     >
-                      <svg width="16" height="16" viewBox="0 0 14 14" fill="none">
-                        <path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 14 14"
+                        fill="none"
+                      >
+                        <path
+                          d="M1 7h12M7 1l6 6-6 6"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
                       </svg>
                     </motion.div>
                   </div>
 
-                  <div className={`h-px bg-gray-200 mx-5 transition-opacity ${isActive ? "opacity-0" : "opacity-100"}`} />
+                  <div
+                    className={`h-px bg-gray-200 mx-5 transition-opacity ${isActive ? "opacity-0" : "opacity-100"}`}
+                  />
                 </motion.div>
               );
             })}
@@ -443,7 +485,13 @@ export default function DigitalSolutions() {
                 <div className="ds-ghost-num">{active.number}</div>
 
                 {/* Gradient */}
-                <div className="absolute inset-0 z-10" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0.1) 50%, transparent)" }} />
+                <div
+                  className="absolute inset-0 z-10"
+                  style={{
+                    background:
+                      "linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0.1) 50%, transparent)",
+                  }}
+                />
 
                 {/* Tag badge */}
                 <motion.div
@@ -496,7 +544,10 @@ export default function DigitalSolutions() {
                     className="rounded-full"
                     style={{ height: "clamp(6px,1vw,10px)" }}
                     animate={{
-                      width: activeIndex === i ? "clamp(20px,4vw,30px)" : "clamp(6px,1vw,10px)",
+                      width:
+                        activeIndex === i
+                          ? "clamp(20px,4vw,30px)"
+                          : "clamp(6px,1vw,10px)",
                       backgroundColor: activeIndex === i ? TEAL : "#cbd5e1",
                     }}
                     transition={{ duration: 0.4 }}
@@ -505,7 +556,6 @@ export default function DigitalSolutions() {
               ))}
             </div>
           </motion.div>
-
         </div>
       </div>
     </section>
