@@ -1,5 +1,4 @@
 import React from 'react';
-import { ArrowUpRight } from 'lucide-react';
 
 const caseStudiesData = [
   {
@@ -22,224 +21,92 @@ const caseStudiesData = [
   },
 ];
 
+const ArrowUpRight = ({ size = 16 }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24"
+    fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <line x1="7" y1="17" x2="17" y2="7" />
+    <polyline points="7 7 17 7 17 17" />
+  </svg>
+);
+
+const cardHoverStyles = `
+  .cs-card:hover .cs-img { transform: scale(1.08); }
+  .cs-card:hover .cs-overlay { background: rgba(0,0,0,0.1) !important; }
+  .cs-card:hover .cs-card-title { color: #175E75; }
+  .cs-img { transition: transform 0.7s ease; }
+  .cs-overlay { transition: background 0.3s ease; }
+  .cs-card-title { transition: color 0.25s ease; }
+`;
+
 const CaseStudies = () => {
   return (
     <>
-      <style>{`
-        /* ── Section ── */
-        .cs-section {
-          padding: clamp(2.5rem, 7vw, 5rem) clamp(1rem, 6vw, 6rem);
-        }
-        .cs-header-gap {
-          margin-bottom: clamp(2rem, 5vw, 4rem);
-        }
+      <style>{cardHoverStyles}</style>
 
-        /* ── Typography ── */
-        .cs-eyebrow {
-          font-size: clamp(0.65rem, 1.2vw, 0.8rem);
-          letter-spacing: 0.1em;
-          margin-bottom: clamp(0.5rem, 1vw, 0.75rem);
-        }
-        .cs-heading {
-          font-size: clamp(1.75rem, 5vw, 3.25rem);
-          line-height: 1.15;
-          letter-spacing: -0.02em;
-        }
-
-        /* ── Grid ── */
-        .cs-grid {
-          display: grid;
-          grid-template-columns: 1fr;
-          gap: clamp(1rem, 2.5vw, 2rem);
-        }
-        @media (min-width: 640px) {
-          .cs-grid { grid-template-columns: repeat(2, 1fr); }
-        }
-        @media (min-width: 1024px) {
-          .cs-grid { grid-template-columns: repeat(3, 1fr); }
-        }
-
-        /* ── Card ── */
-        .cs-card {
-          position: relative;
-          overflow: hidden;
-          background: #f3f4f6;
-          /* Fluid height: tall on desktop, shorter on mobile */
-          height: clamp(280px, 50vw, 480px);
-          border: 1px solid #f3f4f6;
-        }
-        /* On 2-col, cap the height so cards don't get too tall */
-        @media (min-width: 640px) and (max-width: 1023px) {
-          .cs-card { height: clamp(300px, 38vw, 420px); }
-        }
-        /* On 3-col, restore generous height */
-        @media (min-width: 1024px) {
-          .cs-card { height: clamp(340px, 30vw, 480px); }
-        }
-
-        /* ── Image ── */
-        .cs-img {
-          position: absolute;
-          inset: 0;
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          transition: transform 0.7s ease;
-        }
-        .cs-card:hover .cs-img { transform: scale(1.08); }
-        .cs-overlay {
-          position: absolute;
-          inset: 0;
-          background: rgba(0,0,0,0.22);
-          transition: background 0.3s ease;
-        }
-        .cs-card:hover .cs-overlay { background: rgba(0,0,0,0.1); }
-
-        /* ── Content box ── */
-        .cs-box {
-          position: absolute;
-          bottom: 0;
-          right: 0;
-          /* Fluid width: wider on small cards, narrower on large */
-          width: clamp(78%, 85%, 90%);
-          background: #fff;
-          box-shadow: 0 -4px 32px rgba(0,0,0,0.12);
-          padding: clamp(0.875rem, 2.5vw, 1.5rem) clamp(0.875rem, 2.5vw, 1.5rem) clamp(1rem, 2.5vw, 1.5rem);
-        }
-
-        .cs-card-title {
-          font-size: clamp(0.875rem, 1.8vw, 1.125rem);
-          font-weight: 700;
-          line-height: 1.35;
-          margin-bottom: clamp(0.5rem, 1vw, 0.875rem);
-          padding-right: clamp(0.25rem, 1vw, 1rem);
-          color: #0f172a;
-          transition: color 0.25s ease;
-        }
-        .cs-card:hover .cs-card-title { color: #175E75; }
-
-        .cs-stat {
-          font-size: clamp(0.72rem, 1.3vw, 0.875rem);
-          line-height: 1.5;
-          color: #374151;
-          display: flex;
-          align-items: flex-start;
-          gap: clamp(5px, 0.8vw, 8px);
-        }
-        .cs-stat-dot {
-          width: 5px;
-          height: 5px;
-          border-radius: 50%;
-          background: #175E75;
-          flex-shrink: 0;
-          margin-top: 5px;
-        }
-        .cs-stats-wrap {
-          min-height: clamp(40px, 6vw, 64px);
-          margin-bottom: clamp(0.75rem, 1.5vw, 1.25rem);
-          display: flex;
-          flex-direction: column;
-          gap: 4px;
-        }
-
-        .cs-link {
-          display: inline-flex;
-          align-items: center;
-          gap: 5px;
-          font-size: clamp(0.7rem, 1.2vw, 0.85rem);
-          font-weight: 700;
-          border-bottom: 2px solid #0f172a;
-          padding-bottom: 1px;
-          transition: color 0.25s, border-color 0.25s;
-          color: #0f172a;
-          text-decoration: none;
-        }
-        .cs-link:hover { color: #175E75; border-color: #175E75; }
-
-        /* ── CTA ── */
-        .cs-footer {
-          margin-top: clamp(2.5rem, 5vw, 4rem);
-          display: flex;
-          justify-content: center;
-        }
-        .cs-btn {
-          display: inline-flex;
-          align-items: center;
-          gap: clamp(6px, 1vw, 10px);
-          border: 2px solid #0f172a;
-          font-weight: 700;
-          font-size: clamp(0.7rem, 1.2vw, 0.8rem);
-          letter-spacing: 0.1em;
-          text-transform: uppercase;
-          padding: clamp(0.75rem, 1.5vw, 1rem) clamp(1.25rem, 3vw, 2rem);
-          transition: background 0.3s, color 0.3s, border-color 0.3s;
-          cursor: pointer;
-          background: white;
-        }
-        .cs-btn:hover {
-          background: #175E75;
-          color: white;
-          border-color: #175E75;
-        }
-
-        /* ── Very small (<360px) ── */
-        @media (max-width: 359px) {
-          .cs-box { width: 92%; padding: 0.75rem; }
-          .cs-card { height: 260px; }
-        }
-
-        /* ── Landscape phones ── */
-        @media (max-height: 500px) and (orientation: landscape) {
-          .cs-section { padding-block: 1.5rem; }
-          .cs-card { height: 220px; }
-        }
-      `}</style>
-
-      <section className="cs-section bg-white font-sans text-gray-900">
-        <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
+      <section className="px-4 sm:px-12 lg:px-24 py-10 lg:py-20 bg-white font-sans text-gray-900">
+        <div className="max-w-[1400px] mx-auto">
 
           {/* Header */}
-          <div className="cs-header-gap">
-            <p className="cs-eyebrow font-semibold uppercase text-[#175E75]">Our Case Studies</p>
-            <h2 className="cs-heading font-bold">Real-time Case Studies</h2>
+          <div className="mb-10 lg:mb-16">
+            <p className="text-[0.7rem] font-semibold uppercase tracking-[0.1em] text-[#175E75] mb-2">
+              Our Case Studies
+            </p>
+            <h2 className="text-[clamp(1.25rem,4vw,2rem)] font-bold leading-tight tracking-tight">
+              Real-time Case Studies
+            </h2>
           </div>
 
           {/* Grid */}
-          <div className="cs-grid">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-8">
             {caseStudiesData.map((study) => (
-              <div key={study.id} className="cs-card group">
-
+              <div
+                key={study.id}
+                className="cs-card relative overflow-hidden bg-gray-100 border border-gray-100 h-[320px] sm:h-[360px] lg:h-[440px]"
+              >
                 {/* Image */}
-                <img src={study.image} alt={study.title} className="cs-img" />
-                <div className="cs-overlay" />
+                <img
+                  src={study.image}
+                  alt={study.title}
+                  className="cs-img absolute inset-0 w-full h-full object-cover"
+                />
 
-                {/* Content box */}
-                <div className="cs-box">
-                  <h3 className="cs-card-title">{study.title}</h3>
+                {/* Overlay */}
+                <div
+                  className="cs-overlay absolute inset-0"
+                  style={{ background: 'rgba(0,0,0,0.22)' }}
+                />
 
-                  <hr style={{ borderColor: '#e5e7eb', marginBottom: 'clamp(0.5rem, 1vw, 0.875rem)' }} />
+                {/* Content Box */}
+                <div className="absolute bottom-0 right-0 w-[85%] bg-white shadow-[0_-4px_32px_rgba(0,0,0,0.12)] p-4 lg:p-6">
+                  <h3 className="cs-card-title text-sm lg:text-lg font-bold leading-snug mb-3 pr-4 text-slate-900">
+                    {study.title}
+                  </h3>
 
-                  <div className="cs-stats-wrap">
+                  <hr className="border-gray-200 mb-3" />
+
+                  <div className="flex flex-col gap-1 min-h-[48px] mb-4">
                     {study.stats.map((stat, i) => (
-                      <p key={i} className="cs-stat">
-                        <span className="cs-stat-dot" />
+                      <p key={i} className="flex items-start gap-2 text-xs lg:text-sm leading-relaxed text-gray-700">
+                        <span className="w-[5px] h-[5px] rounded-full bg-[#175E75] flex-shrink-0 mt-[5px]" />
                         {stat}
                       </p>
                     ))}
                   </div>
 
-                  <a href="#" className="cs-link">
+                  <a
+                    href="#"
+                    className="inline-flex items-center gap-1 text-xs font-bold border-b-2 border-slate-900 pb-[1px] transition-colors duration-300 hover:text-[#175E75] hover:border-[#175E75] text-slate-900 no-underline"
+                  >
                     Read more <ArrowUpRight size={14} />
                   </a>
                 </div>
-
               </div>
             ))}
           </div>
 
           {/* Footer CTA */}
-          <div className="cs-footer">
-            <button className="cs-btn">
+          <div className="mt-12 lg:mt-16 flex justify-center">
+            <button className="inline-flex items-center gap-2 border-2 border-slate-900 font-bold text-[0.7rem] uppercase tracking-[0.1em] px-6 py-3 lg:px-8 lg:py-4 transition-all duration-300 bg-white hover:bg-[#175E75] hover:text-white hover:border-[#175E75] cursor-pointer">
               View all cases <ArrowUpRight size={16} />
             </button>
           </div>

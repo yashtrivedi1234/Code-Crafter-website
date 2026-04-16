@@ -25,14 +25,14 @@ const BlogSection = () => {
   ];
 
   return (
-    <section className="bg-white py-24 px-6 md:px-12 lg:px-24 font-sans">
+    <section className="bg-white py-8 px-6 md:px-12 lg:px-24">
       {/* Header Section */}
       <div className="max-w-7xl mx-auto mb-20">
         <p className={`${brandColor} font-bold uppercase tracking-widest text-sm mb-3`}>
           Our blog
         </p>
         <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-8">
-          <h2 className="text-4xl md:text-5xl font-bold text-black shrink-0">
+          <h2 className="text-[clamp(1.25rem,4vw,2rem)] font-bold text-black shrink-0">
             Recent blog & articles
           </h2>
       
