@@ -24,11 +24,13 @@ const Home = () => {
       <TestimonialSection />
       <TechStack/>
       <ProcessFlow />
-      <ContactUs />
+      
       <BlogSection />
       <CaseStudies />
+      
       {/* <WebomindappsLanding /> */}
       <CodeCrafterLanding />
+      <ContactUs />
       <FAQ />
     </>
   );

@@ -29,7 +29,7 @@ const Footer = () => {
         <div className="absolute -bottom-32 -right-20 h-72 w-72 rounded-full bg-cyan-200/40 blur-3xl" />
       </div>
 
-      <div className="relative mx-auto w-full max-w-7xl px-6 py-14 sm:px-10 lg:px-16">
+      <div className="relative mx-auto w-full max-w-6xl px-6 py-14 sm:px-10 lg:px-16">
         <div className="grid gap-10 lg:grid-cols-[1.2fr_1fr_1fr_1fr]">
           <div className="space-y-5">
             <img src={logo} alt="Code Crafter" className="h-12 w-auto" />
