@@ -35,7 +35,7 @@ const CultureSection = () => {
   ];
 
   return (
-    <section className="py-10 px-8 md:px-16 bg-gradient-to-b from-slate-50 via-white to-slate-50 relative overflow-hidden">
+    <section className="py-8 px-8 bg-gradient-to-b from-slate-50 via-white to-slate-50 relative overflow-hidden">
       {/* Animated background elements */}
       <div className="absolute top-0 left-1/4 w-64 h-64 bg-blue-200/20 rounded-full blur-3xl animate-pulse"></div>
       <div className="absolute bottom-0 right-1/4 w-72 h-72 bg-cyan-200/20 rounded-full blur-3xl animate-pulse delay-500"></div>

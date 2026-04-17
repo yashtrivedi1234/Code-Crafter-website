@@ -79,7 +79,7 @@ const JobListings = () => {
   });
 
   return (
-    <section className="py-8 px-8 md:px-16 bg-gradient-to-b from-white via-slate-50 to-white relative overflow-hidden">
+    <section className="py-8 px-8 bg-gradient-to-b from-white via-slate-50 to-white relative overflow-hidden">
       {/* Animated background elements */}
       <div className="absolute top-10 left-0 w-72 h-72 bg-[#175E75]/10 rounded-full blur-3xl animate-pulse"></div>
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-cyan-100/15 rounded-full blur-3xl animate-pulse delay-1000"></div>
