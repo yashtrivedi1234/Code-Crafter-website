@@ -75,10 +75,10 @@ const ProcessFlow = () => {
       <section
         ref={containerRef}
         className="relative bg-[#fdfafb]"
-        style={{ height: "300vh" }}
+        
       >
         {/* Sticky Wrapper */}
-        <div className="sticky top-0 h-screen w-full overflow-hidden flex flex-col justify-center">
+        <div className="sticky top-0 h-screen w-full overflow-hidden flex flex-col justify-start pt-8 ">
           <h2 className="text-center text-[clamp(1.25rem,4vw,2rem)] font-bold mb-12 text-gray-900">
             Our website development process
           </h2>
