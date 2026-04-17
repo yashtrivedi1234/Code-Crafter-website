@@ -22,7 +22,7 @@ const TeamSection = () => {
   };
 
   return (
-    <section className="relative min-h-screen bg-white text-gray-900 flex items-center justify-center p-6 overflow-hidden selection:bg-cyan-100 selection:text-(--brand)">
+    <section className="relative bg-white text-gray-900 flex items-center justify-center px-6 py-10 md:py-14 overflow-hidden selection:bg-cyan-100 selection:text-(--brand)">
       <Motion.div
         variants={containerVariants}
         initial="hidden"
