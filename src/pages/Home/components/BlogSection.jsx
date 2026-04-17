@@ -14,7 +14,7 @@ const BlogSection = () => {
       id: 1,
       date: "Mar 11, 2026",
       title: "What Is a Design System? Why Every Team Needs One",
-      image: "https://images.unsplash.com/photo-1586717791821-3f44a563dc4c?auto=format&fit=crop&q=80&w=800",
+ image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800",
     },
     {
       id: 2,
@@ -25,13 +25,13 @@ const BlogSection = () => {
   ];
 
   return (
-    <section className="bg-white py-8 px-6 md:px-12 lg:px-24">
+    <section className="bg-white py-8 px-6">
       {/* Header Section */}
-      <div className="max-w-7xl mx-auto mb-20">
-        <p className={`${brandColor} font-bold uppercase tracking-widest text-sm mb-3`}>
+      <div className="max-w-7xl mx-auto mb-10">
+        <p className={`${brandColor} font-bold uppercase tracking-widest text-sm`}>
           Our blog
         </p>
-        <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-8">
+        <div className="flex flex-col md:flex-row md:items-start md:justify-between ">
           <h2 className="text-[clamp(1.25rem,4vw,2rem)] font-bold text-black shrink-0">
             Recent blog & articles
           </h2>

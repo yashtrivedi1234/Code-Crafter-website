@@ -74,220 +74,9 @@ export default function DigitalSolutions() {
 
   return (
     <section
-      className="min-h-screen bg-[#f8fafc] text-gray-900 overflow-hidden relative"
-      style={{
-        fontFamily: "'DM Sans', sans-serif",
-        padding: "clamp(3rem,8vw,6rem) clamp(1rem,5vw,2rem)",
-      }}
+      className="min-h-screen bg-slate-50 text-gray-900 overflow-hidden relative py-8 px-4"
+      style={{ fontFamily: "'DM Sans', sans-serif" }}
     >
-      <style>{`
-        
-        /* ── Fluid heading ── */
-        .ds-hero-heading {
-          font-size: clamp(2rem, 6vw, 3.75rem);
-          line-height: 1.1;
-          font-family: 'Syne', sans-serif;
-          font-weight: 800;
-          max-width: 42rem;
-          margin-inline: auto;
-        }
-
-        /* ── Main grid: stack on mobile, 12-col on lg ── */
-        .ds-layout {
-          display: grid;
-          grid-template-columns: 1fr;
-          gap: clamp(1.5rem, 4vw, 3.5rem);
-          align-items: start;
-        }
-        @media (min-width: 1024px) {
-          .ds-layout {
-            grid-template-columns: 5fr 7fr;
-          }
-        }
-
-        /* ── Mobile: image first, list second ── */
-        .ds-list-panel  { order: 2; }
-        .ds-image-panel { order: 1; }
-        @media (min-width: 1024px) {
-          .ds-list-panel  { order: 1; }
-          .ds-image-panel { order: 2; position: sticky; top: clamp(1rem, 2vw, 2.5rem); }
-        }
-
-        /* ── Feature items ── */
-        .ds-item-inner {
-          padding: clamp(0.875rem,2.5vw,1.5rem) clamp(1rem,3vw,1.5rem);
-          display: flex;
-          align-items: flex-start;
-          gap: clamp(0.75rem,2vw,1.25rem);
-        }
-        .ds-item-num {
-          font-size: clamp(0.65rem,1vw,0.7rem);
-          font-weight: 700;
-          letter-spacing: 0.15em;
-          margin-top: 2px;
-          flex-shrink: 0;
-        }
-        .ds-item-title {
-          font-size: clamp(0.875rem,1.8vw,1.0625rem);
-          font-weight: 700;
-          line-height: 1.35;
-        }
-        .ds-item-short {
-          font-size: clamp(0.7rem,1.2vw,0.75rem);
-          font-weight: 600;
-          margin-top: 2px;
-        }
-        .ds-item-desc {
-          font-size: clamp(0.75rem,1.3vw,0.875rem);
-          line-height: 1.7;
-          margin-top: clamp(0.5rem,1vw,0.75rem);
-          padding-right: clamp(0,1vw,0.5rem);
-        }
-        .ds-tag {
-          font-size: clamp(0.58rem,0.9vw,0.625rem);
-          padding: 2px clamp(6px,1vw,8px);
-          border-radius: 999px;
-          border: 1px solid;
-          font-weight: 700;
-          flex-shrink: 0;
-          align-self: flex-start;
-          letter-spacing: 0.04em;
-        }
-
-        /* ── Image panel ── */
-        .ds-img-wrap {
-          position: relative;
-          border-radius: clamp(12px,2vw,20px);
-          overflow: hidden;
-          /* Fluid aspect — landscape on mobile, more square on desktop */
-          aspect-ratio: 16/9;
-          box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
-          background: #e2e8f0;
-        }
-        @media (min-width: 1024px) {
-          .ds-img-wrap { aspect-ratio: 4/3; }
-        }
-
-        /* Ghost number */
-        .ds-ghost-num {
-          position: absolute;
-          top: clamp(0.75rem,2vw,1.25rem);
-          left: clamp(1rem,2.5vw,2rem);
-          z-index: 20;
-          font-family: 'Syne', sans-serif;
-          font-weight: 800;
-          font-size: clamp(3rem,10vw,6.25rem);
-          line-height: 1;
-          color: rgba(255,255,255,0.35);
-          pointer-events: none;
-          user-select: none;
-        }
-
-        /* Badges */
-        .ds-tag-badge {
-          position: absolute;
-          bottom: clamp(0.75rem,2vw,1.5rem);
-          left: clamp(0.75rem,2vw,1.5rem);
-          z-index: 20;
-          background: ${TEAL};
-          color: white;
-          font-size: clamp(0.55rem,1vw,0.6875rem);
-          font-weight: 700;
-          padding: clamp(4px,0.8vw,8px) clamp(10px,1.5vw,16px);
-          border-radius: 999px;
-          text-transform: uppercase;
-          letter-spacing: 0.1em;
-        }
-        .ds-title-badge {
-          position: absolute;
-          bottom: clamp(0.75rem,2vw,1.5rem);
-          right: clamp(0.75rem,2vw,1.5rem);
-          z-index: 20;
-          background: rgba(255,255,255,0.95);
-          backdrop-filter: blur(8px);
-          color: ${TEAL};
-          font-size: clamp(0.65rem,1.2vw,0.8125rem);
-          font-weight: 700;
-          padding: clamp(6px,1vw,12px) clamp(10px,1.5vw,20px);
-          border-radius: clamp(10px,1.5vw,16px);
-          border: 1px solid rgba(23,94,117,0.1);
-          max-width: clamp(130px,30vw,220px);
-          text-align: right;
-          line-height: 1.3;
-        }
-
-        /* Corner accents */
-        .ds-corner-tl {
-          position: absolute; top: clamp(-6px,-1vw,-8px); left: clamp(-6px,-1vw,-8px);
-          width: clamp(28px,5vw,48px); height: clamp(28px,5vw,48px);
-          border-top: 2px solid ${TEAL}; border-left: 2px solid ${TEAL};
-          border-radius: 4px 0 0 0; z-index: 20;
-        }
-        .ds-corner-br {
-          position: absolute; bottom: clamp(-6px,-1vw,-8px); right: clamp(-6px,-1vw,-8px);
-          width: clamp(28px,5vw,48px); height: clamp(28px,5vw,48px);
-          border-bottom: 2px solid ${TEAL}; border-right: 2px solid ${TEAL};
-          border-radius: 0 0 4px 0; z-index: 20;
-        }
-
-        /* Progress dots */
-        .ds-dots {
-          display: flex;
-          gap: clamp(6px,1vw,10px);
-          justify-content: center;
-          margin-top: clamp(1rem,2.5vw,2rem);
-          padding-inline: 4px;
-        }
-        .ds-dot-btn {
-          outline: none;
-          background: none;
-          border: none;
-          cursor: pointer;
-          padding: 4px;
-          border-radius: 999px;
-        }
-        .ds-dot-btn:focus-visible {
-          outline: 2px solid ${TEAL};
-          outline-offset: 2px;
-        }
-
-        /* Header margin */
-        .ds-header {
-          margin-bottom: clamp(2rem,5vw,5rem);
-        }
-
-        /* Eyebrow */
-        .ds-eyebrow {
-          font-size: clamp(0.6rem,1vw,0.75rem);
-          font-weight: 700;
-          text-transform: uppercase;
-          letter-spacing: 0.2em;
-          color: ${TEAL};
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          gap: clamp(8px,1.5vw,12px);
-          margin-bottom: clamp(0.75rem,1.5vw,1rem);
-        }
-        .ds-eyebrow-line {
-          display: block;
-          height: 2px;
-          background: ${TEAL};
-          width: clamp(20px,4vw,32px);
-        }
-
-        /* Very small screens */
-        @media (max-width: 359px) {
-          .ds-item-inner { padding: 0.75rem; gap: 0.625rem; }
-          .ds-ghost-num { font-size: 2.5rem; }
-        }
-
-        /* Landscape phones */
-        @media (max-height: 500px) and (orientation: landscape) {
-          .ds-img-wrap { aspect-ratio: 21/9; }
-        }
-      `}</style>
-
       {/* Background grid */}
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.04] z-0"
@@ -300,10 +89,8 @@ export default function DigitalSolutions() {
 
       {/* Glow blob */}
       <motion.div
-        className="pointer-events-none absolute top-0 right-0 rounded-full z-0"
+        className="pointer-events-none absolute top-0 right-0 rounded-full z-0 w-[260px] h-[260px] md:w-[400px] md:h-[400px] lg:w-[600px] lg:h-[600px]"
         style={{
-          width: "clamp(260px,50vw,600px)",
-          height: "clamp(260px,50vw,600px)",
           background: `radial-gradient(circle, rgba(23,94,117,0.15) 0%, transparent 70%)`,
           transform: "translate(30%,-30%)",
         }}
@@ -312,19 +99,36 @@ export default function DigitalSolutions() {
       />
 
       <div className="max-w-7xl mx-auto relative z-10">
-        {/* Header */}
+        {/* ── Header ── */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
-          className="ds-header text-center"
+          className="mb-10 lg:mb-20 text-center"
         >
-          <p className="ds-eyebrow">
-            <span className="ds-eyebrow-line" />
+          {/* Eyebrow */}
+          <p
+            className="flex items-center justify-center gap-3 mb-3 text-[0.7rem] font-bold uppercase tracking-[0.2em]"
+            style={{ color: TEAL }}
+          >
+            <span
+              className="block h-0.5 w-5 lg:w-8"
+              style={{ background: TEAL }}
+            />
             What We Offer
-            <span className="ds-eyebrow-line" />
+            <span
+              className="block h-0.5 w-5 lg:w-8"
+              style={{ background: TEAL }}
+            />
           </p>
-          <h1 className="ds-hero-heading">
+
+          {/* Heading */}
+          <h2
+            className="font-extrabold max-w-2xl mx-auto leading-[1.1] text-[clamp(1.25rem,4vw,2rem)]"
+            style={{
+              fontFamily: "'Syne', sans-serif",
+            }}
+          >
             End-to-End{" "}
             <span className="relative inline-block whitespace-nowrap">
               <span className="relative z-10" style={{ color: TEAL }}>
@@ -337,14 +141,15 @@ export default function DigitalSolutions() {
                 transition={{ duration: 3, repeat: Infinity }}
               />
             </span>{" "}
-            Solutions <span>for Growing Businesses</span>
-          </h1>
+            Solutions for Growing Businesses
+          </h2>
         </motion.div>
 
-        {/* Main layout */}
-        <div className="ds-layout">
-          {/* Feature list */}
-          <div className="ds-list-panel flex flex-col gap-2">
+        {/* ── Main layout ── */}
+        <div className="grid grid-cols-1 lg:grid-cols-[5fr_7fr] gap-6 lg:gap-14 items-start">
+
+          {/* ── Feature list ── */}
+          <div className="order-2 lg:order-1 flex flex-col gap-2">
             {features.map((feature, index) => {
               const isActive = activeIndex === index;
               return (
@@ -363,9 +168,9 @@ export default function DigitalSolutions() {
                   initial={{ opacity: 0, x: -30 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="relative group cursor-pointer outline-none focus-visible:ring-2 rounded-xl"
-                  style={{ "--tw-ring-color": TEAL }}
+                  className="relative group cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-[#175E75] rounded-xl"
                 >
+                  {/* Active background */}
                   <motion.div
                     className="absolute inset-0 rounded-xl"
                     style={{
@@ -377,26 +182,31 @@ export default function DigitalSolutions() {
                     transition={{ duration: 0.3 }}
                   />
 
-                  <div className="ds-item-inner relative z-10">
+                  {/* Item inner */}
+                  <div className="relative z-10 flex items-start gap-3 px-4 py-3 lg:px-6 lg:py-5">
+                    {/* Number */}
                     <motion.span
-                      className="ds-item-num shrink-0"
+                      className="text-[0.65rem] font-bold tracking-[0.15em] mt-0.5 shrink-0"
                       animate={{ color: isActive ? TEAL : "#9ca3af" }}
                       transition={{ duration: 0.3 }}
                     >
                       {feature.number}
                     </motion.span>
 
+                    {/* Content */}
                     <div className="flex-1 min-w-0">
                       <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1 mb-0.5">
                         <motion.h3
-                          className="ds-item-title"
+                          className="text-[0.9rem] lg:text-[1.0625rem] font-bold leading-snug"
                           animate={{ color: isActive ? "#111827" : "#6b7280" }}
                           transition={{ duration: 0.3 }}
                         >
                           {feature.title}
                         </motion.h3>
+
+                        {/* Tag pill */}
                         <motion.span
-                          className="ds-tag"
+                          className="text-[0.58rem] lg:text-[0.625rem] px-2 py-0.5 rounded-full border font-bold tracking-wide shrink-0 self-start"
                           animate={{
                             borderColor: isActive
                               ? "rgba(23,94,117,0.3)"
@@ -412,14 +222,16 @@ export default function DigitalSolutions() {
                         </motion.span>
                       </div>
 
+                      {/* Short tagline */}
                       <motion.p
-                        className="ds-item-short"
+                        className="text-[0.7rem] lg:text-[0.75rem] font-semibold"
                         animate={{ color: isActive ? "#4b5563" : "#9ca3af" }}
                         transition={{ duration: 0.3 }}
                       >
                         {feature.short}
                       </motion.p>
 
+                      {/* Expandable description */}
                       <motion.div
                         initial={false}
                         animate={{
@@ -429,12 +241,13 @@ export default function DigitalSolutions() {
                         transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
                         style={{ overflow: "hidden" }}
                       >
-                        <p className="ds-item-desc text-gray-600">
+                        <p className="text-[0.75rem] lg:text-sm leading-relaxed mt-2 pr-1 text-gray-600">
                           {feature.description}
                         </p>
                       </motion.div>
                     </div>
 
+                    {/* Arrow icon */}
                     <motion.div
                       className="shrink-0 mt-1 hidden sm:block"
                       animate={{
@@ -444,12 +257,7 @@ export default function DigitalSolutions() {
                       }}
                       transition={{ duration: 0.3 }}
                     >
-                      <svg
-                        width="16"
-                        height="16"
-                        viewBox="0 0 14 14"
-                        fill="none"
-                      >
+                      <svg width="16" height="16" viewBox="0 0 14 14" fill="none">
                         <path
                           d="M1 7h12M7 1l6 6-6 6"
                           stroke="currentColor"
@@ -461,30 +269,70 @@ export default function DigitalSolutions() {
                     </motion.div>
                   </div>
 
+                  {/* Divider */}
                   <div
-                    className={`h-px bg-gray-200 mx-5 transition-opacity ${isActive ? "opacity-0" : "opacity-100"}`}
+                    className={`h-px bg-gray-200 mx-5 transition-opacity ${
+                      isActive ? "opacity-0" : "opacity-100"
+                    }`}
                   />
                 </motion.div>
               );
             })}
           </div>
 
-          {/* Image panel */}
+          {/* ── Image panel ── */}
           <motion.div
-            className="ds-image-panel"
+            className="order-1 lg:order-2 lg:sticky lg:top-10"
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
           >
-            <div style={{ position: "relative" }}>
-              <div className="ds-corner-tl" />
-              <div className="ds-corner-br" />
+            <div className="relative">
+              {/* Corner accents — border-radius trick needs inline style for partial borders */}
+              <div
+                className="absolute -top-2 -left-2 w-7 h-7 lg:w-12 lg:h-12 z-20"
+                style={{
+                  borderTop: `2px solid ${TEAL}`,
+                  borderLeft: `2px solid ${TEAL}`,
+                  borderRadius: "4px 0 0 0",
+                }}
+              />
+              <div
+                className="absolute -bottom-2 -right-2 w-7 h-7 lg:w-12 lg:h-12 z-20"
+                style={{
+                  borderBottom: `2px solid ${TEAL}`,
+                  borderRight: `2px solid ${TEAL}`,
+                  borderRadius: "0 0 4px 0",
+                }}
+              />
 
-              <div className="ds-img-wrap">
+              {/* Image wrapper — aspect-ratio with media query needs a style tag or inline */}
+              <div
+                className="relative overflow-hidden rounded-2xl shadow-2xl bg-slate-200"
+                style={{
+                  aspectRatio: "16/9",
+                  // Override to 4/3 on lg via media query below
+                }}
+              >
+                <style>{`
+                  @media (min-width: 1024px) { .ds-img-wrap { aspect-ratio: 4/3 !important; } }
+                  @media (max-height: 500px) and (orientation: landscape) { .ds-img-wrap { aspect-ratio: 21/9 !important; } }
+                `}</style>
+                {/* Apply class so the media query targets it */}
+                <div className="ds-img-wrap absolute inset-0 w-full h-full" />
+
                 {/* Ghost number */}
-                <div className="ds-ghost-num">{active.number}</div>
+                <div
+                  className="absolute top-4 left-5 lg:top-5 lg:left-8 z-20 font-extrabold text-5xl lg:text-[6.25rem] leading-none pointer-events-none select-none"
+                  style={{
+                    fontFamily: "'Syne', sans-serif",
+                    color: "rgba(255,255,255,0.35)",
+                  }}
+                >
+                  {active.number}
+                </div>
 
-                {/* Gradient */}
+                {/* Gradient overlay */}
                 <div
                   className="absolute inset-0 z-10"
                   style={{
@@ -499,7 +347,8 @@ export default function DigitalSolutions() {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4 }}
-                  className="ds-tag-badge"
+                  className="absolute bottom-4 left-4 z-20 text-white text-[0.55rem] lg:text-[0.6875rem] font-bold px-3 py-1.5 lg:px-4 lg:py-2 rounded-full uppercase tracking-[0.1em]"
+                  style={{ background: TEAL }}
                 >
                   {active.tag}
                 </motion.div>
@@ -510,12 +359,18 @@ export default function DigitalSolutions() {
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.4, delay: 0.1 }}
-                  className="ds-title-badge"
+                  className="absolute bottom-4 right-4 z-20 text-[0.65rem] lg:text-[0.8125rem] font-bold px-3 py-2 lg:px-5 lg:py-3 rounded-xl lg:rounded-2xl border text-right leading-snug max-w-[130px] lg:max-w-[220px]"
+                  style={{
+                    background: "rgba(255,255,255,0.95)",
+                    backdropFilter: "blur(8px)",
+                    color: TEAL,
+                    borderColor: "rgba(23,94,117,0.1)",
+                  }}
                 >
                   {active.title}
                 </motion.div>
 
-                {/* Image crossfade */}
+                {/* Crossfade image */}
                 <AnimatePresence mode="wait">
                   <motion.img
                     key={activeIndex}
@@ -532,11 +387,12 @@ export default function DigitalSolutions() {
             </div>
 
             {/* Progress dots */}
-            <div className="ds-dots">
+            <div className="flex items-center justify-center gap-2 mt-6 lg:mt-8 px-1">
               {features.map((_, i) => (
                 <button
                   key={i}
-                  className="ds-dot-btn"
+                  className="outline-none bg-transparent border-0 cursor-pointer p-1 rounded-full focus-visible:outline-2 focus-visible:outline-offset-2"
+                  style={{ outlineColor: TEAL }}
                   onClick={() => setActiveIndex(i)}
                   aria-label={`Go to slide ${i + 1}`}
                 >

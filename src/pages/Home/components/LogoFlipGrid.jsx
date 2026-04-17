@@ -2,45 +2,45 @@ import { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const brands = [
-  { label: "Pine Labs",     kw: "fintech technology office",      seed: 101 },
-  { label: "Trinamix",       kw: "modern architecture building",   seed: 118 },
-  { label: "EROS Innovation", kw: "cinema film production",         seed: 135 },
-  { label: "MFAR",             kw: "real estate luxury property",    seed: 152 },
-  { label: "Aster Pharmacy",   kw: "pharmacy medicine healthcare",   seed: 169 },
-  { label: "Mirabelle Korea", kw: "beauty skincare cosmetics",      seed: 186 },
-  { label: "Embassy",          kw: "hotel lobby hospitality",         seed: 203 },
-  { label: "RmKV Silks",       kw: "silk fabric textile wedding",     seed: 220 },
-  { label: "British Council", kw: "library education english",       seed: 237 },
-  { label: "Prestige Group",   kw: "luxury apartment skyline",       seed: 254 },
-  { label: "Honda e:SWAP",     kw: "electric vehicle battery",       seed: 271 },
-  { label: "Sobha",            kw: "modern villa interior design",   seed: 288 },
-  { label: "Zycus",            kw: "supply chain procurement",       seed: 305 },
-  { label: "Wendt",            kw: "industrial machinery factory",   seed: 322 },
-  { label: "Essae",            kw: "precision weighing measurement", seed: 339 },
-  { label: "dminds",           kw: "artificial intelligence data",   seed: 356 },
-  { label: "Qwikcilver",       kw: "gift card retail shopping",      seed: 373 },
-  { label: "ABSYZ",            kw: "cloud computing server tech",     seed: 390 },
+  { label: "Pine Labs", kw: "fintech technology office", seed: 101 },
+  { label: "Trinamix", kw: "modern architecture building", seed: 118 },
+  { label: "EROS Innovation", kw: "cinema film production", seed: 135 },
+  { label: "MFAR", kw: "real estate luxury property", seed: 152 },
+  { label: "Aster Pharmacy", kw: "pharmacy medicine healthcare", seed: 169 },
+  { label: "Mirabelle Korea", kw: "beauty skincare cosmetics", seed: 186 },
+  { label: "Embassy", kw: "hotel lobby hospitality", seed: 203 },
+  { label: "RmKV Silks", kw: "silk fabric textile wedding", seed: 220 },
+  { label: "British Council", kw: "library education english", seed: 237 },
+  { label: "Prestige Group", kw: "luxury apartment skyline", seed: 254 },
+  { label: "Honda e:SWAP", kw: "electric vehicle battery", seed: 271 },
+  { label: "Sobha", kw: "modern villa interior design", seed: 288 },
+  { label: "Zycus", kw: "supply chain procurement", seed: 305 },
+  { label: "Wendt", kw: "industrial machinery factory", seed: 322 },
+  { label: "Essae", kw: "precision weighing measurement", seed: 339 },
+  { label: "dminds", kw: "artificial intelligence data", seed: 356 },
+  { label: "Qwikcilver", kw: "gift card retail shopping", seed: 373 },
+  { label: "ABSYZ", kw: "cloud computing server tech", seed: 390 },
 ];
 
 const alts = [
-  { label: "Digital Payments",  kw: "digital payment cashless",    seed: 110 },
-  { label: "Infrastructure",    kw: "construction site steel",     seed: 127 },
-  { label: "Entertainment",     kw: "entertainment media studio",  seed: 144 },
-  { label: "Real Estate",       kw: "property development city",   seed: 161 },
-  { label: "Healthcare",        kw: "hospital doctor patient",     seed: 178 },
-  { label: "K-Beauty",          kw: "korean skincare beauty",      seed: 195 },
-  { label: "Hospitality",       kw: "resort luxury travel",        seed: 212 },
-  { label: "Wedding",           kw: "indian wedding ceremony",     seed: 229 },
-  { label: "Education",         kw: "classroom learning students", seed: 246 },
-  { label: "Premium Living",    kw: "luxury living room home",     seed: 263 },
-  { label: "EV Technology",     kw: "electric motorcycle future",  seed: 280 },
-  { label: "Architecture",      kw: "architecture design blueprint",seed: 297 },
-  { label: "Logistics",         kw: "warehouse logistics supply",  seed: 314 },
-  { label: "Manufacturing",     kw: "precision manufacturing tool",seed: 331 },
-  { label: "Instruments",       kw: "laboratory instruments scale",seed: 348 },
-  { label: "AI Solutions",      kw: "machine learning neural",     seed: 365 },
-  { label: "Gift Cards",        kw: "shopping voucher retail",     seed: 382 },
-  { label: "Cloud Tech",        kw: "cloud software developer",    seed: 399 },
+  { label: "Digital Payments", kw: "digital payment cashless", seed: 110 },
+  { label: "Infrastructure", kw: "construction site steel", seed: 127 },
+  { label: "Entertainment", kw: "entertainment media studio", seed: 144 },
+  { label: "Real Estate", kw: "property development city", seed: 161 },
+  { label: "Healthcare", kw: "hospital doctor patient", seed: 178 },
+  { label: "K-Beauty", kw: "korean skincare beauty", seed: 195 },
+  { label: "Hospitality", kw: "resort luxury travel", seed: 212 },
+  { label: "Wedding", kw: "indian wedding ceremony", seed: 229 },
+  { label: "Education", kw: "classroom learning students", seed: 246 },
+  { label: "Premium Living", kw: "luxury living room home", seed: 263 },
+  { label: "EV Technology", kw: "electric motorcycle future", seed: 280 },
+  { label: "Architecture", kw: "architecture design blueprint", seed: 297 },
+  { label: "Logistics", kw: "warehouse logistics supply", seed: 314 },
+  { label: "Manufacturing", kw: "precision manufacturing tool", seed: 331 },
+  { label: "Instruments", kw: "laboratory instruments scale", seed: 348 },
+  { label: "AI Solutions", kw: "machine learning neural", seed: 365 },
+  { label: "Gift Cards", kw: "shopping voucher retail", seed: 382 },
+  { label: "Cloud Tech", kw: "cloud software developer", seed: 399 },
 ];
 
 // Brand Colors
@@ -89,7 +89,7 @@ function Card({ brand, alt, isFlipped }) {
           />
           <div className="absolute inset-0 bg-[#175E75]/40"></div>
           <div className="absolute inset-0 flex items-center justify-center p-4">
-             <span className="text-white text-[12px] font-bold text-center leading-tight tracking-wide drop-shadow-md">
+            <span className="text-white text-[12px] font-bold text-center leading-tight tracking-wide drop-shadow-md">
               {alt.label}
             </span>
           </div>
@@ -101,7 +101,9 @@ function Card({ brand, alt, isFlipped }) {
 
 export default function LogoFlipGrid() {
   const [flipped, setFlipped] = useState(Array(18).fill(false));
-  const queueRef = useRef([...Array(18).keys()].sort(() => Math.random() - 0.5));
+  const queueRef = useRef(
+    [...Array(18).keys()].sort(() => Math.random() - 0.5),
+  );
   const qiRef = useRef(0);
 
   useEffect(() => {
@@ -112,7 +114,9 @@ export default function LogoFlipGrid() {
       const t = setTimeout(() => {
         if (qiRef.current >= queueRef.current.length) {
           qiRef.current = 0;
-          queueRef.current = [...Array(18).keys()].sort(() => Math.random() - 0.5);
+          queueRef.current = [...Array(18).keys()].sort(
+            () => Math.random() - 0.5,
+          );
         }
         const idx = queueRef.current[qiRef.current++];
         setFlipped((prev) => {
@@ -132,7 +136,7 @@ export default function LogoFlipGrid() {
   }, []);
 
   return (
-    <section className="py-20 px-6 max-w-7xl mx-auto font-sans">
+    <section className="py-8 px-6 max-w-7xl mx-auto">
       {/* Header - Centered & Synced */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -140,16 +144,17 @@ export default function LogoFlipGrid() {
         transition={{ duration: 0.6 }}
         className="mb-12 text-center"
       >
-        <span className="text-[#175E75] text-sm font-bold uppercase tracking-[0.3em] block mb-4">
+        <span className="text-[#175E75] text-sm font-bold uppercase tracking-[0.3em] block">
           Trusted Partners
         </span>
-        <h2 className="text-4xl md:text-5xl font-black text-gray-900 leading-tight mb-4 tracking-tighter">
-          Serving 500+ Clients from <br />
+        <h2 className="text-[clamp(1.25rem,4vw,2rem)] font-black text-gray-900 leading-tight mb-4 tracking-tighter">
+          Serving 500+ Clients from {""}
           <span className="text-[#175E75]">Startups to Enterprises</span>
         </h2>
-        <div className="w-24 h-1 bg-[#175E75] mx-auto rounded-full mb-6 opacity-30"></div>
+
         <p className="text-gray-500 text-lg max-w-2xl mx-auto leading-relaxed">
-          Providing end-to-end website design and development solutions for brands that demand excellence.
+          Providing end-to-end website design and development solutions for
+          brands that demand excellence.
         </p>
       </motion.div>
 
@@ -165,24 +170,30 @@ export default function LogoFlipGrid() {
             key={i}
             className="bg-white aspect-square md:aspect-[4/3] relative overflow-hidden group"
           >
-            <Card
-              brand={brand}
-              alt={alts[i]}
-              isFlipped={flipped[i]}
-            />
+            <Card brand={brand} alt={alts[i]} isFlipped={flipped[i]} />
           </div>
         ))}
       </motion.div>
 
       <div className="flex items-center justify-center gap-3 mt-10">
         <div className="flex gap-1">
-            {[1,2,3].map(i => <div key={i} className="w-1.5 h-1.5 rounded-full bg-[#175E75] opacity-20 animate-pulse" />)}
+          {[1, 2, 3].map((i) => (
+            <div
+              key={i}
+              className="w-1.5 h-1.5 rounded-full bg-[#175E75] opacity-20 animate-pulse"
+            />
+          ))}
         </div>
         <p className="text-center text-[10px] font-bold text-[#175E75] uppercase tracking-widest opacity-60">
           Global Portfolio Spotlight
         </p>
         <div className="flex gap-1">
-            {[1,2,3].map(i => <div key={i} className="w-1.5 h-1.5 rounded-full bg-[#175E75] opacity-20 animate-pulse" />)}
+          {[1, 2, 3].map((i) => (
+            <div
+              key={i}
+              className="w-1.5 h-1.5 rounded-full bg-[#175E75] opacity-20 animate-pulse"
+            />
+          ))}
         </div>
       </div>
     </section>

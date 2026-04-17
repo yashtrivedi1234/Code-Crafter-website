@@ -17,7 +17,7 @@ const caseStudiesData = [
     id: 3,
     title: "Textile and Retail Brand",
     stats: ["Increased mobile conversions by 38% after redesign."],
-    image: "https://images.unsplash.com/photo-1583391733958-611591350a41?auto=format&fit=crop&q=80&w=600",
+image: "https://images.unsplash.com/photo-1614680376573-df3480f0c6ff?auto=format&fit=crop&q=80&w=600", 
   },
 ];
 

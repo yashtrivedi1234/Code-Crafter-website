@@ -48,15 +48,14 @@ const TechStack = () => {
     <section className="py-8 px-6 bg-[#fcfdfe]">
       <div className="max-w-7xl mx-auto">
         {/* Header Section */}
-        <div className="text-center mb-16">
-          <span className="text-[#175E75] text-sm font-bold uppercase tracking-[0.3em] block mb-4">
+        <div className="text-center mb-10">
+          <span className="text-[#175E75] text-sm font-bold uppercase tracking-[0.3em] block">
             Our Tech Stack
           </span>
-          <h2 className="text-[clamp(1.25rem,4vw,2rem)] font-black text-slate-900 mb-6 tracking-tighter">
+          <h2 className="text-[clamp(1.25rem,4vw,2rem)] font-black text-slate-900 tracking-tighter">
             Robust Tools & <span className="text-[#175E75]">Technologies</span>{" "}
             We Work
           </h2>
-          <div className="w-20 h-1.5 bg-[#175E75] mx-auto rounded-full opacity-20"></div>
         </div>
 
         {/* Grid System */}
@@ -64,18 +63,6 @@ const TechStack = () => {
           {technologies.map((tech, index) => (
             <TechCard key={index} tech={tech} />
           ))}
-        </div>
-
-        {/* Bottom Decorative Element */}
-        <div className="mt-20 p-8 rounded-3xl bg-slate-900 text-center relative overflow-hidden group">
-          <div className="absolute top-0 right-0 w-32 h-32 bg-[#175E75] opacity-10 rounded-full -mr-16 -mt-16 blur-3xl group-hover:opacity-20 transition-opacity"></div>
-          <p className="text-white/80 font-medium text-lg relative z-10">
-            Don't see your preferred tech here?{" "}
-            <span className="text-[#175E75] font-bold cursor-pointer hover:underline">
-              Ask our experts
-            </span>
-            —we adapt to your needs.
-          </p>
         </div>
       </div>
     </section>
