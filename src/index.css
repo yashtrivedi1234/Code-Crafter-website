@@ -1,1 +1,46 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Emilys+Candy&family=Kalam:wght@300;400;700&display=swap');
+
 @import "tailwindcss";
+
+/* ===== Brand Color Variable ===== */
+:root {
+  --brand: #175E75;
+  --brand-rgb: 23, 94, 117;
+  --brand-border: rgba(23, 94, 117, 0.4);
+}
+
+/* Brand Utility Classes */
+.brand-text   { color: var(--brand); }
+.brand-bg     { background-color: var(--brand); }
+.brand-border { border-color: var(--brand-border); }
+.brand-shadow { box-shadow: 0 25px 50px -12px rgba(var(--brand-rgb), 0.05); }
+.brand-overlay { background-color: rgba(var(--brand-rgb), 0.2); }     /* gradient-to-t overlay (20%) */
+
+/* ===== Headings ===== */
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Emilys Candy", cursive;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+/* Responsive Heading Sizes */
+h1 { font-size: clamp(2rem, 1.5rem + 2vw, 3rem); }
+h2 { font-size: clamp(1.75rem, 1.3rem + 1.5vw, 2.5rem); }
+h3 { font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2rem); }
+h4 { font-size: clamp(1.3rem, 1.1rem + 0.8vw, 1.6rem); }
+h5 { font-size: clamp(1.1rem, 1rem + 0.5vw, 1.3rem); }
+h6 { font-size: clamp(1rem, 0.95rem + 0.2vw, 1.1rem); }
+
+/* ===== Paragraph ===== */
+p {
+  font-family: "Kalam", cursive;
+  font-size: clamp(0.9rem, 0.85rem + 0.2vw, 1rem);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+/* Optional classes */
+.kalam-light   { font-weight: 300; }
+.kalam-regular { font-weight: 400; }
+.kalam-bold    { font-weight: 700; }

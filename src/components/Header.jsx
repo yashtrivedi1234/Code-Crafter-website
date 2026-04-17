@@ -20,7 +20,7 @@ const mobileMenuLinks = navItems.map(item => ({
 
 export default function Header() {
   return (
-    <header className="relative w-full h-24">
+    <header className="sticky top-0 z-50 w-full h-24">
       
       {/* =========================================
           DESKTOP VIEW (PillNav)

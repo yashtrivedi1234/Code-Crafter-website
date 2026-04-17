@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import { useRef, useEffect } from "react";
 
 const steps = [
   {
@@ -92,10 +92,9 @@ const ProcessFlow = () => {
             {steps.map((step) => (
               <div
                 key={step.id}
-                className="w-[300px] h-[380px] bg-white rounded-2xl flex flex-col items-center px-5 py-10 text-center flex-shrink-0 transition-transform duration-300 ease-in-out hover:-translate-y-2.5"
-                style={{ boxShadow: "0 10px 30px rgba(0, 0, 0, 0.08)" }}
+                className="w-75 h-95 bg-white rounded-2xl flex flex-col items-center px-5 py-10 text-center shrink-0 transition-transform duration-300 ease-in-out hover:-translate-y-2.5 brand-shadow"
               >
-                <div className="w-20 h-20 bg-gray-900 rounded-full flex items-center justify-center text-white text-2xl font-bold mb-6">
+                <div className="w-20 h-20 brand-bg rounded-full flex items-center justify-center text-white text-2xl font-bold mb-6">
                   {step.id}
                 </div>
                 <h3 className="text-xl font-semibold mb-3 text-gray-800">

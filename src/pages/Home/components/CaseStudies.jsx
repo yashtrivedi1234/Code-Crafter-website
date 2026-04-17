@@ -1,5 +1,3 @@
-import React from 'react';
-
 const caseStudiesData = [
   {
     id: 1,
@@ -32,7 +30,7 @@ const ArrowUpRight = ({ size = 16 }) => (
 const cardHoverStyles = `
   .cs-card:hover .cs-img { transform: scale(1.08); }
   .cs-card:hover .cs-overlay { background: rgba(0,0,0,0.1) !important; }
-  .cs-card:hover .cs-card-title { color: #175E75; }
+  .cs-card:hover .cs-card-title { color: var(--brand); }
   .cs-img { transition: transform 0.7s ease; }
   .cs-overlay { transition: background 0.3s ease; }
   .cs-card-title { transition: color 0.25s ease; }
@@ -44,11 +42,11 @@ const CaseStudies = () => {
       <style>{cardHoverStyles}</style>
 
       <section className="px-4 sm:px-12 lg:px-24 py-10 lg:py-20 bg-white font-sans text-gray-900">
-        <div className="max-w-[1400px] mx-auto">
+        <div className="max-w-350 mx-auto">
 
           {/* Header */}
           <div className="mb-10 lg:mb-16">
-            <p className="text-[0.7rem] font-semibold uppercase tracking-[0.1em] text-[#175E75] mb-2">
+            <p className="brand-text text-[0.7rem] font-semibold uppercase tracking-widest mb-2">
               Our Case Studies
             </p>
             <h2 className="text-[clamp(1.25rem,4vw,2rem)] font-bold leading-tight tracking-tight">
@@ -61,7 +59,7 @@ const CaseStudies = () => {
             {caseStudiesData.map((study) => (
               <div
                 key={study.id}
-                className="cs-card relative overflow-hidden bg-gray-100 border border-gray-100 h-[320px] sm:h-[360px] lg:h-[440px]"
+                className="cs-card relative overflow-hidden bg-gray-100 border border-gray-100 h-80 sm:h-90 lg:h-110"
               >
                 {/* Image */}
                 <img
@@ -84,10 +82,10 @@ const CaseStudies = () => {
 
                   <hr className="border-gray-200 mb-3" />
 
-                  <div className="flex flex-col gap-1 min-h-[48px] mb-4">
+                  <div className="flex flex-col gap-1 min-h-12 mb-4">
                     {study.stats.map((stat, i) => (
                       <p key={i} className="flex items-start gap-2 text-xs lg:text-sm leading-relaxed text-gray-700">
-                        <span className="w-[5px] h-[5px] rounded-full bg-[#175E75] flex-shrink-0 mt-[5px]" />
+                        <span className="w-1.25 h-1.25 rounded-full brand-bg shrink-0 mt-1.25" />
                         {stat}
                       </p>
                     ))}
@@ -95,7 +93,7 @@ const CaseStudies = () => {
 
                   <a
                     href="#"
-                    className="inline-flex items-center gap-1 text-xs font-bold border-b-2 border-slate-900 pb-[1px] transition-colors duration-300 hover:text-[#175E75] hover:border-[#175E75] text-slate-900 no-underline"
+                    className="inline-flex items-center gap-1 text-xs font-bold border-b-2 border-slate-900 pb-px transition-colors duration-300 hover:brand-text hover:border-(--brand) text-slate-900 no-underline"
                   >
                     Read more <ArrowUpRight size={14} />
                   </a>
@@ -106,7 +104,7 @@ const CaseStudies = () => {
 
           {/* Footer CTA */}
           <div className="mt-12 lg:mt-16 flex justify-center">
-            <button className="inline-flex items-center gap-2 border-2 border-slate-900 font-bold text-[0.7rem] uppercase tracking-[0.1em] px-6 py-3 lg:px-8 lg:py-4 transition-all duration-300 bg-white hover:bg-[#175E75] hover:text-white hover:border-[#175E75] cursor-pointer">
+            <button className="inline-flex items-center gap-2 border-2 border-slate-900 font-bold text-[0.7rem] uppercase tracking-widest px-6 py-3 lg:px-8 lg:py-4 transition-all duration-300 bg-white hover:brand-bg hover:text-white hover:border-(--brand) cursor-pointer">
               View all cases <ArrowUpRight size={16} />
             </button>
           </div>

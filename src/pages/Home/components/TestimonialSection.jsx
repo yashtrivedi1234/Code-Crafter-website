@@ -1,12 +1,6 @@
-import React from "react";
 import { Star, ChevronLeft, ChevronRight } from "lucide-react";
 
 const TestimonialSection = () => {
-  // Brand Color: #175E75
-  const brandTextColor = "text-[#175E75]";
-  const brandBorderColor = "border-[#175E75]";
-  const brandHoverBg = "hover:bg-[#175E75]";
-
   const reviews = [
     {
       id: 1,
@@ -29,16 +23,14 @@ const TestimonialSection = () => {
   ];
 
   return (
-    <div className="bg-[#fcfdfe] min-h-screen py-8 px-6 font-sans relative">
+    <div className="bg-[#fcfdfe] min-h-screen py-8 px-6 relative">
       {/* Section Heading */}
       <div className="text-center mb-10">
-        <span
-          className={`${brandTextColor} text-sm font-bold uppercase tracking-[0.3em] block`}
-        >
+        <span className="brand-text text-sm font-bold uppercase tracking-[0.3em] block">
           Testimonials
         </span>
         <h2 className="text-[clamp(1.25rem,4vw,2rem)] font-black text-gray-900 tracking-tighter">
-          What our <span className={brandTextColor}>clients</span> say
+          What our <span className="brand-text">clients</span> say
         </h2>
         
       </div>
@@ -48,17 +40,15 @@ const TestimonialSection = () => {
         {reviews.map((review) => (
           <div
             key={review.id}
-            className="bg-white border border-gray-100 rounded-[2.5rem] p-10 shadow-xl shadow-gray-200/40 flex flex-col justify-between transition-all duration-500 hover:shadow-2xl hover:shadow-[#175E75]/10 group"
+            className="bg-white border border-gray-100 rounded-[2.5rem] p-10 shadow-xl shadow-gray-200/40 flex flex-col justify-between transition-all duration-500 hover:shadow-2xl brand-shadow group"
           >
             <div>
               <div className="flex justify-between items-start mb-6">
                 <div>
-                  <h3 className="text-xl font-bold text-gray-900 group-hover:text-[#175E75] transition-colors">
+                  <h3 className="text-xl font-bold text-gray-900 group-hover:brand-text transition-colors">
                     {review.name}
                   </h3>
-                  <p
-                    className={`${brandTextColor} text-xs font-bold uppercase tracking-wider mt-1`}
-                  >
+                  <p className="brand-text text-xs font-bold uppercase tracking-wider mt-1">
                     {review.company}
                   </p>
                   <div className="flex mt-3 gap-0.5">
@@ -104,12 +94,12 @@ const TestimonialSection = () => {
       {/* Navigation Arrows */}
       <div className="flex justify-center gap-4 mt-16">
         <button
-          className={`p-4 border-2 border-slate-900 rounded-full hover:text-white ${brandHoverBg} transition-all duration-300 shadow-lg`}
+          className="p-4 border-2 border-slate-900 rounded-full hover:text-white hover:bg-(--brand) transition-all duration-300 shadow-lg"
         >
           <ChevronLeft size={20} />
         </button>
         <button
-          className={`p-4 border-2 border-slate-900 rounded-full hover:text-white ${brandHoverBg} transition-all duration-300 shadow-lg`}
+          className="p-4 border-2 border-slate-900 rounded-full hover:text-white hover:bg-(--brand) transition-all duration-300 shadow-lg"
         >
           <ChevronRight size={20} />
         </button>

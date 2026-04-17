@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import { useState } from 'react';
 
 const faqData = [
   {
@@ -32,46 +32,37 @@ const faqData = [
 ];
 
 function AccordionItem({ item, index, isActive, onToggle }) {
-  const contentRef = useRef(null);
-  const [height, setHeight] = useState(0);
-
-  useEffect(() => {
-    if (contentRef.current) {
-      setHeight(isActive ? contentRef.current.scrollHeight : 0);
-    }
-  }, [isActive]);
-
   return (
     <div
       className={`bg-white rounded-2xl overflow-hidden transition-all duration-300 mb-2.5
         ${isActive
-          ? 'border border-[#175E75] shadow-md'
-          : 'border border-slate-200 hover:border-[#175E75]/40 hover:shadow-md shadow-sm'
+          ? 'border brand-border shadow-md'
+          : 'border border-slate-200 hover:border-(--brand) hover:shadow-md shadow-sm'
         }`}
     >
       {/* Button */}
       <button
         onClick={() => onToggle(index)}
         aria-expanded={isActive}
-        className="w-full flex items-center justify-between gap-4 px-5 py-[18px] text-left
-                   min-h-[56px] md:min-h-[64px] focus:outline-none
-                   focus-visible:ring-2 focus-visible:ring-[#175E75] focus-visible:ring-offset-2 group"
+        className="w-full flex items-center justify-between gap-4 px-5 py-4.5 text-left
+                   min-h-14 md:min-h-16 focus:outline-none
+                   focus-visible:ring-2 focus-visible:ring-(--brand) focus-visible:ring-offset-2 group"
       >
         <span
           className={`font-semibold text-[clamp(0.9rem,2.5vw,1.125rem)] leading-snug tracking-tight
                       transition-colors duration-300
-                      ${isActive ? 'text-[#175E75]' : 'text-slate-800'}`}
+                      ${isActive ? 'brand-text' : 'text-slate-800'}`}
         >
           {item.question}
         </span>
 
         {/* Icon */}
         <span
-          className={`flex-shrink-0 flex items-center justify-center rounded-full border
+          className={`shrink-0 flex items-center justify-center rounded-full border
                       transition-all duration-300 ease-in-out
                       w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10
                       ${isActive
-                        ? 'bg-[#175E75] border-[#175E75] rotate-45'
+                        ? 'brand-bg border-(--brand) rotate-45'
                         : 'bg-slate-50 border-slate-200 group-hover:bg-slate-100'
                       }`}
         >
@@ -91,14 +82,11 @@ function AccordionItem({ item, index, isActive, onToggle }) {
 
       {/* Expandable Answer */}
       <div
-        style={{
-          height: `${height}px`,
-          overflow: 'hidden',
-          transition: 'height 0.35s cubic-bezier(0.04,0.62,0.23,0.98), opacity 0.35s',
-          opacity: isActive ? 1 : 0,
-        }}
+        className={`overflow-hidden transition-all duration-300 ease-out ${
+          isActive ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+        }`}
       >
-        <div ref={contentRef} className="px-5 pb-5 pt-1">
+        <div className="px-5 pb-5 pt-1">
           <p className="text-[clamp(0.8125rem,1.8vw,1rem)] leading-7 text-slate-600">
             {item.answer}
           </p>
@@ -123,7 +111,7 @@ export default function FAQ() {
         <div className="text-center mb-8 sm:mb-10">
           <h2 className="text-[clamp(1.25rem,4vw,2rem)] font-extrabold text-slate-900 tracking-tight leading-tight">
             Frequently asked{' '}
-            <span className="text-[#175E75]">questions</span>
+            <span className="brand-text">questions</span>
           </h2>
           <p className="text-[clamp(0.875rem,2vw,1.125rem)] text-slate-500 mt-3 max-w-xl mx-auto">
             Everything you need to know about our web development process.

@@ -1,14 +1,6 @@
-import React from 'react';
 import { ArrowUpRight } from 'lucide-react';
 
 const BlogSection = () => {
-  // Brand Color: rgb(23, 94, 117) -> #175E75
-  const brandColor = "text-[#175E75]";
-  const brandBg = "bg-[#175E75]";
-  const brandBorder = "border-[#175E75]";
-  const brandHoverText = "hover:text-[#175E75]";
-  const brandHoverBorder = "hover:border-[#175E75]";
-
   const articles = [
     {
       id: 1,
@@ -28,7 +20,7 @@ const BlogSection = () => {
     <section className="bg-white py-8 px-6">
       {/* Header Section */}
       <div className="max-w-7xl mx-auto mb-10">
-        <p className={`${brandColor} font-bold uppercase tracking-widest text-sm`}>
+        <p className="brand-text font-bold uppercase tracking-widest text-sm">
           Our blog
         </p>
         <div className="flex flex-col md:flex-row md:items-start md:justify-between ">
@@ -44,25 +36,25 @@ const BlogSection = () => {
         {articles.map((post) => (
           <div key={post.id} className="group relative">
             {/* Image Container */}
-            <div className="relative h-[300px] md:h-[450px] w-full overflow-hidden shadow-lg">
-              <img 
-                src={post.image} 
+            <div className="relative h-75 md:h-112.5 w-full overflow-hidden shadow-lg">
+              <img
+                src={post.image}
                 alt={post.title}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500"></div>
+              <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500" />
             </div>
 
             {/* Overlapping Content Card */}
-            <div className="relative md:absolute bottom-0 right-0 w-full md:w-[85%] bg-white p-8 md:p-10 shadow-2xl md:-mb-10 z-10 border-t-4 border-[#175E75]">
+            <div className="relative md:absolute bottom-0 right-0 w-full md:w-[85%] bg-white p-8 md:p-10 shadow-2xl md:-mb-10 z-10 border-t-4 brand-border">
               <p className="text-gray-500 text-sm font-medium mb-4">{post.date}</p>
-              <h3 className="text-2xl font-bold text-gray-900 mb-8 leading-tight group-hover:text-[#175E75] transition-colors">
+              <h3 className="text-2xl font-bold text-gray-900 mb-8 leading-tight group-hover:brand-text transition-colors">
                 {post.title}
               </h3>
               <div className="border-t border-gray-100 pt-6">
-                <a 
-                  href="#" 
-                  className={`inline-flex items-center gap-2 font-bold text-black border-b-2 border-black pb-1 ${brandHoverText} ${brandHoverBorder} transition-all duration-300`}
+                <a
+                  href="#"
+                  className="inline-flex items-center gap-2 font-bold text-black border-b-2 border-black pb-1 hover:brand-text hover:brand-border transition-all duration-300"
                 >
                   Read Blog <ArrowUpRight size={18} />
                 </a>

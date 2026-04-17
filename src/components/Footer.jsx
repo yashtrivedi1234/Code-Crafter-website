@@ -25,7 +25,7 @@ const Footer = () => {
   return (
     <footer className="relative overflow-hidden bg-[#eff5f7] text-slate-900">
       <div className="pointer-events-none absolute inset-0">
-        <div className="absolute -top-32 -left-20 h-72 w-72 rounded-full bg-[#175E75]/10 blur-3xl" />
+          <div className="absolute -top-32 -left-20 h-72 w-72 rounded-full brand-bg opacity-10 blur-3xl" />
         <div className="absolute -bottom-32 -right-20 h-72 w-72 rounded-full bg-cyan-200/40 blur-3xl" />
       </div>
 
@@ -37,11 +37,11 @@ const Footer = () => {
               We build digital products that look bold, load fast, and convert better. From strategy to launch, we craft experiences that move businesses forward.
             </p>
 
-            <div className="rounded-2xl border border-[#175E75]/15 bg-white/80 p-4 shadow-sm backdrop-blur-sm">
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#175E75]">Email us</p>
+                  <div className="rounded-2xl border brand-border bg-white/80 p-4 shadow-sm backdrop-blur-sm">
+                    <p className="text-xs font-bold uppercase tracking-[0.2em] brand-text">Email us</p>
               <a
                 href="mailto:hello@codecrafter.com"
-                className="mt-2 inline-block text-sm font-semibold text-slate-900 transition hover:text-[#175E75]"
+                      className="mt-2 inline-block text-sm font-semibold text-slate-900 transition hover:brand-text"
               >
                 hello@codecrafter.com
               </a>
@@ -49,11 +49,11 @@ const Footer = () => {
           </div>
 
           <div>
-            <h3 className="mb-4 text-xs font-bold uppercase tracking-[0.2em] text-[#175E75]">Quick Links</h3>
+                  <h3 className="mb-4 text-xs font-bold uppercase tracking-[0.2em] brand-text">Quick Links</h3>
             <ul className="space-y-3 text-sm">
               {quickLinks.map((link) => (
                 <li key={link.label}>
-                  <a href={link.href} className="text-slate-700 transition hover:text-[#175E75]">
+                        <a href={link.href} className="text-slate-700 transition hover:brand-text">
                     {link.label}
                   </a>
                 </li>
@@ -62,11 +62,11 @@ const Footer = () => {
           </div>
 
           <div>
-            <h3 className="mb-4 text-xs font-bold uppercase tracking-[0.2em] text-[#175E75]">Company</h3>
+                  <h3 className="mb-4 text-xs font-bold uppercase tracking-[0.2em] brand-text">Company</h3>
             <ul className="space-y-3 text-sm">
               {companyLinks.map((link) => (
                 <li key={link.label}>
-                  <a href={link.href} className="text-slate-700 transition hover:text-[#175E75]">
+                        <a href={link.href} className="text-slate-700 transition hover:brand-text">
                     {link.label}
                   </a>
                 </li>
@@ -75,11 +75,11 @@ const Footer = () => {
           </div>
 
           <div>
-            <h3 className="mb-4 text-xs font-bold uppercase tracking-[0.2em] text-[#175E75]">Follow</h3>
+                  <h3 className="mb-4 text-xs font-bold uppercase tracking-[0.2em] brand-text">Follow</h3>
             <ul className="space-y-3 text-sm">
               {socialLinks.map((link) => (
                 <li key={link.label}>
-                  <a href={link.href} className="text-slate-700 transition hover:text-[#175E75]">
+                        <a href={link.href} className="text-slate-700 transition hover:brand-text">
                     {link.label}
                   </a>
                 </li>
@@ -88,7 +88,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col items-start justify-between gap-4 border-t border-[#175E75]/15 pt-6 text-sm text-slate-600 md:flex-row md:items-center">
+              <div className="mt-12 flex flex-col items-start justify-between gap-4 border-t brand-border pt-6 text-sm text-slate-600 md:flex-row md:items-center">
           <p>© {new Date().getFullYear()} Code Crafter. All rights reserved.</p>
           <p>Designed with strategy, crafted with precision.</p>
         </div>

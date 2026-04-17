@@ -1,11 +1,4 @@
-import React from 'react';
-
 const ContactUs = () => {
-  const brandText = "text-[#175E75]";
-  const brandBg = "bg-[#175E75]";
-  const brandFocusRing = "focus:ring-[#175E75]";
-  const brandShadow = "shadow-[#175E75]/30";
-
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Form submitted!");
@@ -28,11 +21,11 @@ const ContactUs = () => {
 
           {/* Headings */}
           <div className="space-y-3">
-            <h2 className={`text-xs font-bold uppercase tracking-[0.2em] ${brandText}`}>
+            <h2 className="brand-text text-xs font-bold uppercase tracking-[0.2em]">
               Get in Touch
             </h2>
             <h2 className="text-2xl font-extrabold text-gray-900 leading-tight">
-              Unlock your business potential with <span className={brandText}>Code Crafter</span>
+              Unlock your business potential with <span className="brand-text">Code Crafter</span>
             </h2>
             <p className="text-sm text-gray-500 leading-relaxed">
               Step up your online presence with the proper utilization of digital assets. Our experts are ready to help you scale.
@@ -45,13 +38,13 @@ const ContactUs = () => {
               <input
                 type="text"
                 placeholder="Enter name"
-                className={`w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 focus:ring-2 ${brandFocusRing} focus:border-transparent focus:bg-white outline-none transition-all text-sm`}
+                className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 focus:ring-2 focus:ring-(--brand) focus:border-transparent focus:bg-white outline-none transition-all text-sm"
                 required
               />
               <input
                 type="tel"
                 placeholder="Enter number"
-                className={`w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 focus:ring-2 ${brandFocusRing} focus:border-transparent focus:bg-white outline-none transition-all text-sm`}
+                className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 focus:ring-2 focus:ring-(--brand) focus:border-transparent focus:bg-white outline-none transition-all text-sm"
                 required
               />
             </div>
@@ -59,20 +52,20 @@ const ContactUs = () => {
             <input
               type="email"
               placeholder="Please enter your work email"
-              className={`w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 focus:ring-2 ${brandFocusRing} focus:border-transparent focus:bg-white outline-none transition-all text-sm`}
+              className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 focus:ring-2 focus:ring-(--brand) focus:border-transparent focus:bg-white outline-none transition-all text-sm"
               required
             />
 
             <textarea
               placeholder="How can we help you?"
               rows={4}
-              className={`w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 focus:ring-2 ${brandFocusRing} focus:border-transparent focus:bg-white outline-none transition-all resize-none text-sm`}
+              className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 focus:ring-2 focus:ring-(--brand) focus:border-transparent focus:bg-white outline-none transition-all resize-none text-sm"
               required
             />
 
             <button
               type="submit"
-              className={`w-full inline-flex items-center justify-center gap-3 px-8 py-4 ${brandBg} hover:opacity-90 text-white font-bold text-base rounded-xl transition-all shadow-xl ${brandShadow} hover:-translate-y-0.5`}
+              className="w-full inline-flex items-center justify-center gap-3 px-8 py-4 brand-bg hover:opacity-90 text-white font-bold text-base rounded-xl transition-all shadow-xl brand-shadow hover:-translate-y-0.5"
             >
               Talk to our experts
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">

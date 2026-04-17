@@ -1,4 +1,3 @@
-import React from "react";
 import { ArrowUpRight } from "lucide-react";
 
 const features = [
@@ -49,7 +48,7 @@ const CodeCrafterLanding = () => {
         <div className="text-center mb-10 sm:mb-16 lg:mb-20">
           <h2 className="text-[clamp(1.25rem,4vw,2rem)] font-extrabold leading-tight tracking-tight max-w-4xl mx-auto">
             Why Code Crafter is the Top Web Development Agency in{" "}
-            <span className="text-[#175E75]">Lucknow?</span>
+            <span className="brand-text">Lucknow?</span>
           </h2>
         </div>
 
@@ -63,7 +62,7 @@ const CodeCrafterLanding = () => {
                          hover:bg-slate-50 hover:-translate-y-0.5 group"
             >
               <h3 className="text-base sm:text-lg lg:text-xl font-bold text-slate-900 mb-3
-                             group-hover:text-[#175E75] transition-colors duration-300 leading-snug">
+                             group-hover:brand-text transition-colors duration-300 leading-snug">
                 {feature.title}
               </h3>
               <p className="text-xs sm:text-sm text-slate-500 leading-relaxed mb-4 sm:mb-6">
@@ -75,7 +74,7 @@ const CodeCrafterLanding = () => {
                     key={idx}
                     className="flex items-start gap-2 text-[10px] sm:text-[11px] font-bold uppercase tracking-widest text-slate-700"
                   >
-                    <span className="mt-1 w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-[#175E75] flex-shrink-0" />
+                    <span className="mt-1 w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full brand-bg shrink-0" />
                     {point}
                   </li>
                 ))}
@@ -92,13 +91,13 @@ const CodeCrafterLanding = () => {
                        px-6 py-4 sm:px-10 sm:py-5
                        text-sm sm:text-base lg:text-lg font-bold
                        bg-slate-900 text-white
-                       hover:bg-[#175E75]
+                       hover:brand-bg
                        transition-all duration-300
-                       shadow-lg hover:shadow-cyan-100"
+                       shadow-lg brand-shadow"
           >
             Start Your Project With Us
             <ArrowUpRight
-              className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0
+              className="w-5 h-5 sm:w-6 sm:h-6 shrink-0
                          group-hover:translate-x-0.5 group-hover:-translate-y-0.5
                          transition-transform duration-300"
             />

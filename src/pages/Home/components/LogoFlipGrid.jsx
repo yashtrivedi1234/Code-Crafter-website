@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
 const brands = [
   { label: "Pine Labs", kw: "fintech technology office", seed: 101 },
@@ -43,9 +43,6 @@ const alts = [
   { label: "Cloud Tech", kw: "cloud software developer", seed: 399 },
 ];
 
-// Brand Colors
-const brandTeal = "#175E75";
-
 function imgUrl(kw, seed) {
   return `https://images.unsplash.com/photo-1560179707-f14e90ef3623?auto=format&fit=crop&q=60&w=400&q=80&sig=${seed}`;
 }
@@ -69,9 +66,9 @@ function Card({ brand, alt, isFlipped }) {
             alt={brand.label}
             className="w-full h-full object-cover absolute inset-0 opacity-40 grayscale hover:grayscale-0 transition-all duration-500"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#175E75]/20 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-t brand-overlay to-transparent" />
           <div className="absolute bottom-0 left-0 right-0 bg-white/90 backdrop-blur-sm px-2 py-2 z-10 border-t border-gray-100">
-            <span className="text-[#175E75] text-[10px] font-bold truncate block tracking-wider text-center uppercase">
+            <span className="brand-text kalam-bold text-[10px] truncate block tracking-wider text-center uppercase">
               {brand.label}
             </span>
           </div>
@@ -79,7 +76,7 @@ function Card({ brand, alt, isFlipped }) {
 
         {/* Back - Teal Focus */}
         <div
-          className="absolute inset-0 overflow-hidden bg-[#175E75] flex items-center justify-center"
+          className="absolute inset-0 overflow-hidden brand-bg flex items-center justify-center"
           style={{ backfaceVisibility: "hidden", transform: "rotateY(180deg)" }}
         >
           <img
@@ -87,9 +84,9 @@ function Card({ brand, alt, isFlipped }) {
             alt={alt.label}
             className="w-full h-full object-cover absolute inset-0 opacity-30"
           />
-          <div className="absolute inset-0 bg-[#175E75]/40"></div>
+          <div className="absolute inset-0 brand-bg opacity-40" />
           <div className="absolute inset-0 flex items-center justify-center p-4">
-            <span className="text-white text-[12px] font-bold text-center leading-tight tracking-wide drop-shadow-md">
+            <span className="text-white kalam-bold text-[12px] text-center leading-tight tracking-wide drop-shadow-md">
               {alt.label}
             </span>
           </div>
@@ -137,22 +134,25 @@ export default function LogoFlipGrid() {
 
   return (
     <section className="py-8 px-6 max-w-7xl mx-auto">
-      {/* Header - Centered & Synced */}
+      {/* Header */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         className="mb-12 text-center"
       >
-        <span className="text-[#175E75] text-sm font-bold uppercase tracking-[0.3em] block">
+        <span className="brand-text kalam-bold text-sm uppercase tracking-[0.3em] block">
           Trusted Partners
         </span>
-        <h2 className="text-[clamp(1.25rem,4vw,2rem)] font-black text-gray-900 leading-tight mb-4 tracking-tighter">
-          Serving 500+ Clients from {""}
-          <span className="text-[#175E75]">Startups to Enterprises</span>
+
+        {/* h2 — font-family & font-size from global h2 */}
+        <h2 className="text-gray-900 leading-tight mb-4 tracking-tighter">
+          Serving 500+ Clients from{" "}
+          <span className="brand-text">Startups to Enterprises</span>
         </h2>
 
-        <p className="text-gray-500 text-lg max-w-2xl mx-auto leading-relaxed">
+        {/* p — font-family & font-size from global p */}
+        <p className="text-gray-500 max-w-2xl mx-auto leading-relaxed">
           Providing end-to-end website design and development solutions for
           brands that demand excellence.
         </p>
@@ -163,7 +163,7 @@ export default function LogoFlipGrid() {
         initial={{ opacity: 0, scale: 0.98 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8, delay: 0.2 }}
-        className="grid grid-cols-3 md:grid-cols-6 gap-0 border border-gray-100 rounded-3xl overflow-hidden shadow-2xl shadow-[#175E75]/5"
+        className="grid grid-cols-3 md:grid-cols-6 gap-0 border border-gray-100 rounded-3xl overflow-hidden shadow-2xl brand-shadow"
       >
         {brands.map((brand, i) => (
           <div
@@ -175,23 +175,24 @@ export default function LogoFlipGrid() {
         ))}
       </motion.div>
 
+      {/* Footer Dots */}
       <div className="flex items-center justify-center gap-3 mt-10">
         <div className="flex gap-1">
           {[1, 2, 3].map((i) => (
             <div
               key={i}
-              className="w-1.5 h-1.5 rounded-full bg-[#175E75] opacity-20 animate-pulse"
+              className="w-1.5 h-1.5 rounded-full brand-bg opacity-20 animate-pulse"
             />
           ))}
         </div>
-        <p className="text-center text-[10px] font-bold text-[#175E75] uppercase tracking-widest opacity-60">
+        <p className="text-center kalam-bold brand-text text-[10px] uppercase tracking-widest opacity-60">
           Global Portfolio Spotlight
         </p>
         <div className="flex gap-1">
           {[1, 2, 3].map((i) => (
             <div
               key={i}
-              className="w-1.5 h-1.5 rounded-full bg-[#175E75] opacity-20 animate-pulse"
+              className="w-1.5 h-1.5 rounded-full brand-bg opacity-20 animate-pulse"
             />
           ))}
         </div>

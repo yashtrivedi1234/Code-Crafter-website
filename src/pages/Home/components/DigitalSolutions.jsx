@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
+const BRAND = "var(--brand)";
+const BRAND_BORDER = "var(--brand-border)";
+
 const features = [
   {
     id: 0,
@@ -24,14 +27,14 @@ const features = [
         development, hosting, infographics,{" "}
         <a
           href="#"
-          className="font-medium text-[#175E75] underline underline-offset-2 decoration-[#175E75] hover:opacity-80 transition-colors"
+          className="font-medium brand-text underline underline-offset-2 decoration-(--brand) hover:opacity-80 transition-colors"
         >
           digital marketing
         </a>{" "}
         and{" "}
         <a
           href="#"
-          className="font-medium text-[#175E75] underline underline-offset-2 decoration-[#175E75] hover:opacity-80 transition-colors"
+          className="font-medium brand-text underline underline-offset-2 decoration-(--brand) hover:opacity-80 transition-colors"
         >
           SEO services
         </a>
@@ -66,8 +69,6 @@ const features = [
   },
 ];
 
-const TEAL = "#175E75";
-
 export default function DigitalSolutions() {
   const [activeIndex, setActiveIndex] = useState(0);
   const active = features[activeIndex];
@@ -75,7 +76,6 @@ export default function DigitalSolutions() {
   return (
     <section
       className="min-h-screen bg-slate-50 text-gray-900 overflow-hidden relative py-8 px-4"
-      style={{ fontFamily: "'DM Sans', sans-serif" }}
     >
       {/* Background grid */}
       <div
@@ -91,7 +91,7 @@ export default function DigitalSolutions() {
       <motion.div
         className="pointer-events-none absolute top-0 right-0 rounded-full z-0 w-[260px] h-[260px] md:w-[400px] md:h-[400px] lg:w-[600px] lg:h-[600px]"
         style={{
-          background: `radial-gradient(circle, rgba(23,94,117,0.15) 0%, transparent 70%)`,
+          background: "radial-gradient(circle, rgba(var(--brand-rgb), 0.15) 0%, transparent 70%)",
           transform: "translate(30%,-30%)",
         }}
         animate={{ scale: [1, 1.1, 1], opacity: [0.6, 1, 0.6] }}
@@ -108,35 +108,22 @@ export default function DigitalSolutions() {
         >
           {/* Eyebrow */}
           <p
-            className="flex items-center justify-center gap-3 mb-3 text-[0.7rem] font-bold uppercase tracking-[0.2em]"
-            style={{ color: TEAL }}
+            className="flex items-center justify-center gap-3 mb-3 text-[0.7rem] font-bold uppercase tracking-[0.2em] brand-text"
           >
-            <span
-              className="block h-0.5 w-5 lg:w-8"
-              style={{ background: TEAL }}
-            />
+            <span className="block h-0.5 w-5 lg:w-8 brand-bg" />
             What We Offer
-            <span
-              className="block h-0.5 w-5 lg:w-8"
-              style={{ background: TEAL }}
-            />
+            <span className="block h-0.5 w-5 lg:w-8 brand-bg" />
           </p>
 
           {/* Heading */}
-          <h2
-            className="font-extrabold max-w-2xl mx-auto leading-[1.1] text-[clamp(1.25rem,4vw,2rem)]"
-            style={{
-              fontFamily: "'Syne', sans-serif",
-            }}
-          >
+          <h2 className="font-extrabold max-w-2xl mx-auto leading-[1.1] text-[clamp(1.25rem,4vw,2rem)]">
             End-to-End{" "}
             <span className="relative inline-block whitespace-nowrap">
-              <span className="relative z-10" style={{ color: TEAL }}>
+              <span className="relative z-10 brand-text">
                 Digital
               </span>
               <motion.span
-                className="absolute inset-0 rounded-md -mx-1"
-                style={{ background: "rgba(23,94,117,0.1)" }}
+                className="absolute inset-0 rounded-md -mx-1 brand-overlay"
                 animate={{ scaleX: [0.95, 1.05, 0.95] }}
                 transition={{ duration: 3, repeat: Infinity }}
               />
@@ -168,14 +155,15 @@ export default function DigitalSolutions() {
                   initial={{ opacity: 0, x: -30 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="relative group cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-[#175E75] rounded-xl"
+                  className="relative group cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-(--brand) rounded-xl"
                 >
                   {/* Active background */}
                   <motion.div
-                    className="absolute inset-0 rounded-xl"
+                    className="absolute inset-0 rounded-xl brand-border"
                     style={{
-                      background: "rgba(23,94,117,0.03)",
-                      border: "1px solid rgba(23,94,117,0.1)",
+                      background: "rgba(var(--brand-rgb), 0.03)",
+                      borderWidth: "1px",
+                      borderStyle: "solid",
                     }}
                     initial={false}
                     animate={{ opacity: isActive ? 1 : 0 }}
@@ -187,7 +175,7 @@ export default function DigitalSolutions() {
                     {/* Number */}
                     <motion.span
                       className="text-[0.65rem] font-bold tracking-[0.15em] mt-0.5 shrink-0"
-                      animate={{ color: isActive ? TEAL : "#9ca3af" }}
+                      animate={{ color: isActive ? BRAND : "#9ca3af" }}
                       transition={{ duration: 0.3 }}
                     >
                       {feature.number}
@@ -208,12 +196,10 @@ export default function DigitalSolutions() {
                         <motion.span
                           className="text-[0.58rem] lg:text-[0.625rem] px-2 py-0.5 rounded-full border font-bold tracking-wide shrink-0 self-start"
                           animate={{
-                            borderColor: isActive
-                              ? "rgba(23,94,117,0.3)"
-                              : "rgba(0,0,0,0.1)",
-                            color: isActive ? TEAL : "#6b7280",
+                            borderColor: isActive ? BRAND_BORDER : "rgba(0,0,0,0.1)",
+                            color: isActive ? BRAND : "#6b7280",
                             backgroundColor: isActive
-                              ? "rgba(23,94,117,0.05)"
+                              ? "rgba(var(--brand-rgb), 0.05)"
                               : "transparent",
                           }}
                           transition={{ duration: 0.3 }}
@@ -253,7 +239,7 @@ export default function DigitalSolutions() {
                       animate={{
                         x: isActive ? 0 : -6,
                         opacity: isActive ? 1 : 0,
-                        color: TEAL,
+                        color: BRAND,
                       }}
                       transition={{ duration: 0.3 }}
                     >
@@ -292,16 +278,16 @@ export default function DigitalSolutions() {
               <div
                 className="absolute -top-2 -left-2 w-7 h-7 lg:w-12 lg:h-12 z-20"
                 style={{
-                  borderTop: `2px solid ${TEAL}`,
-                  borderLeft: `2px solid ${TEAL}`,
+                  borderTop: `2px solid ${BRAND}`,
+                  borderLeft: `2px solid ${BRAND}`,
                   borderRadius: "4px 0 0 0",
                 }}
               />
               <div
                 className="absolute -bottom-2 -right-2 w-7 h-7 lg:w-12 lg:h-12 z-20"
                 style={{
-                  borderBottom: `2px solid ${TEAL}`,
-                  borderRight: `2px solid ${TEAL}`,
+                  borderBottom: `2px solid ${BRAND}`,
+                  borderRight: `2px solid ${BRAND}`,
                   borderRadius: "0 0 4px 0",
                 }}
               />
@@ -347,8 +333,7 @@ export default function DigitalSolutions() {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4 }}
-                  className="absolute bottom-4 left-4 z-20 text-white text-[0.55rem] lg:text-[0.6875rem] font-bold px-3 py-1.5 lg:px-4 lg:py-2 rounded-full uppercase tracking-[0.1em]"
-                  style={{ background: TEAL }}
+                  className="absolute bottom-4 left-4 z-20 text-white text-[0.55rem] lg:text-[0.6875rem] font-bold px-3 py-1.5 lg:px-4 lg:py-2 rounded-full uppercase tracking-[0.1em] brand-bg"
                 >
                   {active.tag}
                 </motion.div>
@@ -363,8 +348,8 @@ export default function DigitalSolutions() {
                   style={{
                     background: "rgba(255,255,255,0.95)",
                     backdropFilter: "blur(8px)",
-                    color: TEAL,
-                    borderColor: "rgba(23,94,117,0.1)",
+                    color: BRAND,
+                    borderColor: BRAND_BORDER,
                   }}
                 >
                   {active.title}
@@ -392,7 +377,7 @@ export default function DigitalSolutions() {
                 <button
                   key={i}
                   className="outline-none bg-transparent border-0 cursor-pointer p-1 rounded-full focus-visible:outline-2 focus-visible:outline-offset-2"
-                  style={{ outlineColor: TEAL }}
+                  style={{ outlineColor: BRAND }}
                   onClick={() => setActiveIndex(i)}
                   aria-label={`Go to slide ${i + 1}`}
                 >
@@ -404,7 +389,7 @@ export default function DigitalSolutions() {
                         activeIndex === i
                           ? "clamp(20px,4vw,30px)"
                           : "clamp(6px,1vw,10px)",
-                      backgroundColor: activeIndex === i ? TEAL : "#cbd5e1",
+                      backgroundColor: activeIndex === i ? BRAND : "#cbd5e1",
                     }}
                     transition={{ duration: 0.4 }}
                   />
