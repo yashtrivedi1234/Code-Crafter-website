@@ -1,20 +1,20 @@
 const footerLinks = {
 	services: [
-		{ label: "Web Development", href: "#" },
-		{ label: "UI/UX Design", href: "#" },
-		{ label: "Mobile Apps", href: "#" },
-		{ label: "Brand Strategy", href: "#" },
+		{ label: "Web Development", href: "/what-we-do" },
+		{ label: "UI/UX Design", href: "/what-we-do" },
+		{ label: "Mobile Apps", href: "/what-we-do" },
+		{ label: "Brand Strategy", href: "/what-we-do" },
 	],
 	company: [
-		{ label: "About Us", href: "#" },
-		{ label: "Our Process", href: "#" },
-		{ label: "Case Studies", href: "#" },
-		{ label: "Contact", href: "#" },
+		{ label: "About Us", href: "/company" },
+		{ label: "Our Process", href: "/what-we-do" },
+		{ label: "Case Studies", href: "/case-study" },
+		{ label: "Contact", href: "/contact" },
 	],
 	resources: [
-		{ label: "Blog", href: "#" },
-		{ label: "FAQ", href: "#" },
-		{ label: "Support", href: "#" },
+		{ label: "Blog", href: "/resource" },
+		{ label: "FAQ", href: "/" },
+		{ label: "Support", href: "/contact" },
 		{ label: "Privacy Policy", href: "#" },
 	],
 };
