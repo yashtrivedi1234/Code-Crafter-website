@@ -8,6 +8,9 @@ import Resource from "./pages/Resource/Resource";
 import Company from "./pages/Company/Company";
 import JoinUs from "./pages/JoinUs/JoinUs";
 import Contact from "./pages/Contact/Contact";
+import FAQ from "./pages/FAQ/FAQ";
+import PrivacyPolicy from "./pages/PrivacyPolicy/PrivacyPolicy";
+import Terms from "./pages/Terms/Terms";
 
 
 function App() {
@@ -25,6 +28,9 @@ function App() {
           <Route path="company" element={<Company />} />
           <Route path="join-us" element={<JoinUs />} />
           <Route path="contact" element={<Contact />} />
+          <Route path="faq" element={<FAQ />} />
+          <Route path="privacy" element={<PrivacyPolicy />} />
+          <Route path="terms" element={<Terms />} />
         </Route>
 
       </Routes>

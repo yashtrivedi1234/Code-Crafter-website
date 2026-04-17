@@ -3,6 +3,7 @@ import StaggeredMenu from "./ui/StaggeredMenu"; // Make sure this path is correc
 import logo from "../assets/cc-logo.webp";
 
 const navItems = [
+  { label: "Home", href: "/" },
   { label: "What We Do", href: "/what-we-do" },
   { label: "Our Work", href: "/our-work" },
   { label: "Case Study", href: "/case-study" },

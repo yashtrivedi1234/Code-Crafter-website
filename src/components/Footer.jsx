@@ -13,9 +13,10 @@ const footerLinks = {
 	],
 	resources: [
 		{ label: "Blog", href: "/resource" },
-		{ label: "FAQ", href: "/" },
+		{ label: "FAQ", href: "/faq" },
 		{ label: "Support", href: "/contact" },
-		{ label: "Privacy Policy", href: "#" },
+		{ label: "Privacy Policy", href: "/privacy" },
+		{ label: "Terms & Conditions", href: "/terms" },
 	],
 };
 
