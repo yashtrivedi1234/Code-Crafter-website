@@ -1,5 +1,5 @@
 import React from 'react';
-import HeroVideo from "../../../assets/code-crafter-loader.mp4";
+import HeroVideo from "../../../assets/hero1.mp4";
 
 const Hero = () => {
   return (
@@ -16,18 +16,18 @@ const Hero = () => {
       />
 
       {/* Dark Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/40 to-transparent z-10" />
+      <div className="absolute inset-0 bg-linear-to-r from-black/75 via-black/40 to-transparent z-10" />
 
       {/* Content Overlay */}
       <div className="relative z-20 h-full flex flex-col justify-center px-8 md:px-16 max-w-3xl">
 
         {/* Brand Badge */}
         <div className="flex items-center gap-3 mb-6">
-          <div className="h-[1px] w-8 brand-bg" />
-          <span className="brand-text kalam-bold text-xs tracking-[0.2em] uppercase brand-border border px-3 py-1 rounded-full">
+          <div className="h-px w-8 bg-white/70" />
+          <span className="text-white kalam-bold text-xs tracking-[0.2em] uppercase border border-white/70 px-3 py-1 rounded-full">
             Code Crafter
           </span>
-          <div className="h-[1px] w-8 brand-bg" />
+          <div className="h-px w-8 bg-white/70" />
         </div>
 
         {/* Main Heading — font-family & font-size handled by global h1 */}
@@ -48,7 +48,7 @@ const Hero = () => {
           <button className="px-7 py-3 kalam-bold text-white rounded-md transition-all duration-300 hover:opacity-90 brand-bg">
             Our Projects →
           </button>
-          <button className="px-7 py-3 kalam-bold rounded-md border-2 transition-all duration-300 hover:bg-white/10 brand-text brand-border">
+          <button className="px-7 py-3 kalam-bold text-white rounded-md border-2 border-white/70 transition-all duration-300 hover:bg-white/10 hover:border-white">
             Our Services →
           </button>
         </div>
