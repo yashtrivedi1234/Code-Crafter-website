@@ -56,17 +56,6 @@ const features = [
       "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=90",
     tag: "Team",
   },
-  {
-    id: 3,
-    number: "04",
-    title: "On-Time Delivery",
-    short: "Deadlines are a promise, not a goal.",
-    description:
-      "We promise to deliver all projects on time and following client instructions, ensuring good quality work without any delays.",
-    image:
-      "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=800&q=90",
-    tag: "Workflow",
-  },
 ];
 
 export default function DigitalSolutions() {
@@ -133,10 +122,10 @@ export default function DigitalSolutions() {
         </motion.div>
 
         {/* ── Main layout ── */}
-        <div className="grid grid-cols-1 lg:grid-cols-[5fr_7fr] gap-6 lg:gap-14 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-[5fr_7fr] gap-6 lg:gap-14 items-stretch">
 
           {/* ── Feature list ── */}
-          <div className="order-2 lg:order-1 flex flex-col gap-2">
+          <div className="order-2 lg:order-1 flex flex-col gap-2 h-full">
             {features.map((feature, index) => {
               const isActive = activeIndex === index;
               return (
@@ -268,12 +257,12 @@ export default function DigitalSolutions() {
 
           {/* ── Image panel ── */}
           <motion.div
-            className="order-1 lg:order-2 lg:sticky lg:top-10"
+            className="order-1 lg:order-2 lg:sticky lg:top-10 h-full"
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
           >
-            <div className="relative">
+            <div className="relative h-full flex flex-col">
               {/* Corner accents — border-radius trick needs inline style for partial borders */}
               <div
                 className="absolute -top-2 -left-2 w-7 h-7 lg:w-12 lg:h-12 z-20"

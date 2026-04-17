@@ -33,7 +33,7 @@ const Footer = () => {
         <div className="grid gap-10 lg:grid-cols-[1.2fr_1fr_1fr_1fr]">
           <div className="space-y-5">
             <img src={logo} alt="Code Crafter" className="h-12 w-auto" />
-            <p className="max-w-sm text-sm leading-7 text-slate-700">
+            <p className="max-w-sm text-xs leading-7 text-slate-700">
               We build digital products that look bold, load fast, and convert better. From strategy to launch, we craft experiences that move businesses forward.
             </p>
 
@@ -49,7 +49,7 @@ const Footer = () => {
           </div>
 
           <div>
-                  <h3 className="mb-4 text-xs font-bold uppercase tracking-[0.2em] brand-text">Quick Links</h3>
+                  <h3 className="mb-3 text-[0.6rem] sm:text-[0.7rem] font-semibold uppercase tracking-[0.1em] brand-text">Quick Links</h3>
             <ul className="space-y-3 text-sm">
               {quickLinks.map((link) => (
                 <li key={link.label}>
@@ -62,7 +62,7 @@ const Footer = () => {
           </div>
 
           <div>
-                  <h3 className="mb-4 text-xs font-bold uppercase tracking-[0.2em] brand-text">Company</h3>
+                  <h3 className="mb-3 text-[0.6rem] sm:text-[0.7rem] font-semibold uppercase tracking-[0.1em] brand-text">Company</h3>
             <ul className="space-y-3 text-sm">
               {companyLinks.map((link) => (
                 <li key={link.label}>
@@ -75,7 +75,7 @@ const Footer = () => {
           </div>
 
           <div>
-                  <h3 className="mb-4 text-xs font-bold uppercase tracking-[0.2em] brand-text">Follow</h3>
+                  <h3 className="mb-3 text-[0.6rem] sm:text-[0.7rem] font-semibold uppercase tracking-[0.1em] brand-text">Follow</h3>
             <ul className="space-y-3 text-sm">
               {socialLinks.map((link) => (
                 <li key={link.label}>
