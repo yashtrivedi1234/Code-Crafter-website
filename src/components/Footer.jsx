@@ -71,7 +71,7 @@ function LinkColumn({ title, items }) {
 
 export default function Footer() {
 	return (
-		<footer className="relative mt-16 overflow-hidden bg-linear-to-b from-[#0f4f64] via-[#175E75] to-[#11485a] text-white">
+		<footer className="relative  overflow-hidden bg-linear-to-b from-[#0f4f64] via-[#175E75] to-[#11485a] text-white">
 			<div className="pointer-events-none absolute inset-0 opacity-20">
 				<div className="absolute -top-20 left-1/4 h-56 w-56 rounded-full bg-cyan-200 blur-3xl" />
 				<div className="absolute -bottom-24 right-1/4 h-64 w-64 rounded-full bg-sky-200 blur-3xl" />
