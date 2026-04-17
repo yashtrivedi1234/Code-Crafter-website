@@ -7,7 +7,7 @@ const Resource = () => {
     <div className="w-full">
       <PageHero 
         title="Resources & Blog"
-        subtitle="Insights, tips, and industry trends to help you grow your business"
+        subtitle="Expert insights, industry trends, and practical tips to accelerate your digital transformation journey"
       />
       <BlogGrid />
     </div>

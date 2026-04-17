@@ -9,7 +9,7 @@ const WhatWeDo = () => {
     <div className="w-full">
       <PageHero 
         title="What We Do"
-        subtitle="Innovative solutions tailored to transform your digital presence"
+        subtitle="Comprehensive digital solutions tailored to transform your business and accelerate growth"
       />
       <ServicesGrid />
       <ProcessOverview />

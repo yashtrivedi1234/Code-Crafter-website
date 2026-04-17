@@ -1,8 +1,16 @@
 import React, { useState } from 'react';
-import { Palette, Zap, Smartphone, Search, Cloud } from 'lucide-react';
+import { Palette, Zap, Smartphone, Search, Cloud, ArrowRight, Calendar, User } from 'lucide-react';
 
 const BlogGrid = () => {
   const [filter, setFilter] = useState('all');
+  const [hoveredId, setHoveredId] = useState(null);
+
+  const categoryColors = {
+    design: { color: "from-purple-500 to-purple-600", light: "bg-purple-50", border: "border-purple-200" },
+    development: { color: "from-blue-500 to-blue-600", light: "bg-blue-50", border: "border-blue-200" },
+    mobile: { color: "from-green-500 to-green-600", light: "bg-green-50", border: "border-green-200" },
+    seo: { color: "from-orange-500 to-orange-600", light: "bg-orange-50", border: "border-orange-200" }
+  };
 
   const articles = [
     {
@@ -92,18 +100,32 @@ const BlogGrid = () => {
     : articles.filter(a => a.category === filter);
 
   return (
-    <section className="py-20 px-8 md:px-16 bg-white">
-      <div className="max-w-6xl mx-auto">
+    <section className="py-8 px-8 md:px-16 bg-gradient-to-b from-white via-slate-50 to-white relative overflow-hidden">
+      {/* Animated background */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-purple-100/20 rounded-full blur-3xl animate-pulse"></div>
+      <div className="absolute bottom-0 left-0 w-80 h-80 bg-blue-100/20 rounded-full blur-3xl animate-pulse delay-700"></div>
+
+      <div className="max-w-6xl mx-auto relative z-10">
+        {/* Section Header */}
+        <div className="text-center mb-16">
+          <span className="inline-block px-4 py-2 rounded-full bg-[#175E75]/10 text-[#175E75] text-sm font-bold mb-4 uppercase tracking-wider">Blog & Resources</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-black mb-4">Latest Articles & Insights</h2>
+          <div className="w-16 h-1 bg-gradient-to-r from-[#175E75] to-cyan-400 mx-auto mb-6"></div>
+          <p className="text-gray-600 text-lg max-w-2xl mx-auto leading-relaxed">
+            Stay updated with industry insights, tips, and best practices to grow your business
+          </p>
+        </div>
+
         {/* Filter Buttons */}
         <div className="flex flex-wrap justify-center gap-3 mb-16">
           {categories.map((cat) => (
             <button
               key={cat.id}
               onClick={() => setFilter(cat.id)}
-              className={`px-6 py-2 rounded-full font-semibold transition-all duration-300 ${
+              className={`px-6 py-2.5 rounded-full font-semibold transition-all duration-300 border-2 ${ 
                 filter === cat.id
-                  ? 'brand-bg text-white'
-                  : 'border border-[#175E75] text-[#175E75] hover:bg-[#175E75] hover:text-white'
+                  ? 'bg-[#175E75] text-white border-[#175E75] shadow-lg'
+                  : 'border-gray-300 text-gray-700 hover:border-[#175E75] hover:text-[#175E75]'
               }`}
             >
               {cat.label}
@@ -112,54 +134,101 @@ const BlogGrid = () => {
         </div>
 
         {/* Articles Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {filteredArticles.map((article) => {
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
+          {filteredArticles.map((article, idx) => {
             const IconComponent = article.icon;
+            const catColor = categoryColors[article.category] || categoryColors.development;
+            const isHovered = hoveredId === article.id;
             return (
-            <article
-              key={article.id}
-              className="group border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg hover:border-[#175E75] transition-all duration-300"
-            >
-              {/* Image/Icon Area */}
-              <div className="w-full h-40 bg-linear-to-br from-slate-50 to-slate-100 flex items-center justify-center group-hover:bg-[#175E75] transition-colors duration-300">
-                <IconComponent size={40} className="text-[#175E75] group-hover:text-white transition-colors" strokeWidth={1.5} />
-              </div>
-
-              {/* Content */}
-              <div className="p-6">
-                <div className="flex justify-between items-start mb-3">
-                  <p className="text-xs text-[#175E75] font-semibold uppercase">{article.category}</p>
-                  <p className="text-xs text-gray-500">{article.date}</p>
+              <article
+                key={article.id}
+                onMouseEnter={() => setHoveredId(article.id)}
+                onMouseLeave={() => setHoveredId(null)}
+                className={`group overflow-hidden rounded-2xl border-2 transition-all duration-500 cursor-pointer ${ 
+                  isHovered 
+                    ? 'border-[#175E75] shadow-2xl -translate-y-4 scale-105' 
+                    : 'border-gray-200 shadow-md hover:border-gray-300'
+                }`}
+                style={{ animationDelay: `${idx * 50}ms` }}
+              >
+                {/* Image/Icon Area */}
+                <div className={`w-full h-48 bg-gradient-to-br ${catColor.color} flex items-center justify-center transition-all duration-300 relative overflow-hidden`}>
+                  <div className="absolute inset-0 bg-white/0 group-hover:bg-white/10 transition-all duration-300"></div>
+                  <IconComponent size={48} className={`text-white transition-all duration-300 ${ 
+                    isHovered ? 'scale-125 rotate-12' : 'group-hover:scale-110'
+                  }`} strokeWidth={1.5} />
                 </div>
 
-                <h3 className="text-black mb-2 group-hover:text-[#175E75] transition-colors">{article.title}</h3>
-                <p className="text-gray-600 text-sm mb-4">{article.excerpt}</p>
+                {/* Content */}
+                <div className={`p-6 transition-all duration-300 ${ 
+                  isHovered ? catColor.light : 'bg-white'
+                }`}>
+                  {/* Category Badge */}
+                  <div className="flex items-center justify-between mb-4">
+                    <span className={`inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 ${ 
+                      isHovered 
+                        ? `bg-gradient-to-r ${catColor.color} text-white` 
+                        : `bg-${article.category === 'design' ? 'purple' : article.category === 'mobile' ? 'green' : article.category === 'seo' ? 'orange' : 'blue'}-100 text-${article.category === 'design' ? 'purple' : article.category === 'mobile' ? 'green' : article.category === 'seo' ? 'orange' : 'blue'}-700`
+                    }`}>{article.category}</span>
+                    <div className={`text-xs flex items-center gap-1 transition-all duration-300 ${ 
+                      isHovered ? 'text-[#175E75] font-semibold' : 'text-gray-500'
+                    }`}>
+                      <Calendar size={14} /> {article.date}
+                    </div>
+                  </div>
 
-                <div className="flex justify-between items-center pt-4 border-t border-gray-100">
-                  <p className="text-xs text-gray-500">By {article.author}</p>
-                  <a href="#" className="text-[#175E75] font-semibold text-sm hover:opacity-70 transition-opacity">
-                    Read More →
-                  </a>
+                  {/* Title */}
+                  <h3 className={`text-xl font-bold mb-3 transition-all duration-300 ${ 
+                    isHovered ? 'text-[#175E75] text-2xl' : 'text-black'
+                  }`}>{article.title}</h3>
+
+                  {/* Excerpt */}
+                  <p className={`mb-4 leading-relaxed transition-all duration-300 ${ 
+                    isHovered ? 'text-gray-700 font-medium' : 'text-gray-600 text-sm'
+                  }`}>{article.excerpt}</p>
+
+                  {/* Footer */}
+                  <div className="flex justify-between items-center pt-4 border-t-2 border-gray-200">
+                    <div className={`text-xs flex items-center gap-1 transition-all duration-300 ${ 
+                      isHovered ? 'text-[#175E75]' : 'text-gray-500'
+                    }`}>
+                      <User size={14} /> {article.author}
+                    </div>
+                    <a href="#" className={`font-semibold text-sm transition-all duration-300 flex items-center gap-2 ${ 
+                      isHovered 
+                        ? `text-white bg-gradient-to-r ${catColor.color} px-4 py-2 rounded-lg` 
+                        : `text-[#175E75] hover:text-[#0f3f4f]`
+                    }`}>
+                      Read More <ArrowRight size={16} className={`transition-transform duration-300 ${ 
+                        isHovered ? 'translate-x-1' : ''
+                      }`} />
+                    </a>
+                  </div>
                 </div>
-              </div>
-            </article>
+              </article>
             );
           })}
         </div>
 
         {/* Newsletter Signup */}
-        <div className="mt-20 p-12 rounded-lg bg-linear-to-r from-[#175E75] to-[#0f3f4f] text-white text-center">
-          <h3 className="text-white mb-3">Stay Updated</h3>
-          <p className="mb-6 opacity-90">Subscribe to our newsletter for the latest insights and tips</p>
-          <div className="flex flex-col md:flex-row gap-3 max-w-md mx-auto">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="flex-1 px-4 py-3 rounded-lg text-black placeholder-gray-500 focus:outline-none"
-            />
-            <button className="px-8 py-3 rounded-lg bg-white text-[#175E75] font-semibold hover:bg-gray-100 transition-colors">
-              Subscribe
-            </button>
+        <div className="p-10 md:p-16 rounded-2xl bg-gradient-to-r from-[#175E75] via-[#0f3f4f] to-[#0a2f3f] text-white text-center relative overflow-hidden border-2 border-[#175E75]/30">
+          {/* Background elements */}
+          <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-400/10 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-400/10 rounded-full blur-3xl"></div>
+
+          <div className="relative z-10">
+            <h3 className="text-3xl md:text-4xl font-bold mb-3">Stay Updated</h3>
+            <p className="mb-8 text-lg opacity-90 max-w-2xl mx-auto">Subscribe to our newsletter for the latest insights, tips, and industry trends</p>
+            <div className="flex flex-col md:flex-row gap-3 max-w-lg mx-auto">
+              <input
+                type="email"
+                placeholder="Enter your email"
+                className="flex-1 px-6 py-3 rounded-lg text-black placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-400 transition-all"
+              />
+              <button className="px-8 py-3 rounded-lg bg-gradient-to-r from-cyan-400 to-cyan-300 text-[#175E75] font-bold hover:shadow-lg hover:scale-105 transition-all duration-300 whitespace-nowrap">
+                Subscribe
+              </button>
+            </div>
           </div>
         </div>
       </div>

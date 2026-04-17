@@ -9,7 +9,7 @@ const Company = () => {
     <div className="w-full">
       <PageHero 
         title="About Code Crafter"
-        subtitle="Crafting digital solutions since day one"
+        subtitle="Discover the story behind the digital solutions that transform businesses"
       />
       <AboutContent />
       <ValuesSection />

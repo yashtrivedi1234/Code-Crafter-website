@@ -8,7 +8,7 @@ const OurWork = () => {
     <div className="w-full">
       <PageHero 
         title="Our Work"
-        subtitle="Showcasing our best projects and successful collaborations"
+        subtitle="Explore our portfolio of innovative projects and successful partnerships"
       />
       <Statistics />
       <PortfolioGrid />
