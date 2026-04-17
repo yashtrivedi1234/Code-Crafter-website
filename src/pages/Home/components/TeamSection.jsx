@@ -27,26 +27,26 @@ const TeamSection = () => {
   };
 
   return (
-    <section className="relative min-h-screen bg-white text-gray-900 flex items-center justify-center p-6 md:p-12 overflow-hidden selection:bg-cyan-100 selection:text-[#175E75]">
+    <section className="relative min-h-screen bg-white text-gray-900 flex items-center justify-center p-6 overflow-hidden selection:bg-cyan-100 selection:text-[#175E75]">
       <motion.div
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
-        className="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10"
+        className="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-stretch relative z-10"
       >
         {/* Left Side: Unsplash Image Container */}
-        <motion.div variants={itemVariants} className="relative group">
+        <motion.div variants={itemVariants} className="relative group h-full flex flex-col">
           {/* Subtle background glow - Updated to Teal tint */}
           <div className="absolute -inset-4 bg-cyan-50/50 rounded-[3rem] opacity-0 group-hover:opacity-100 transition-opacity duration-700 ease-in-out -z-10" />
 
-          <div className="relative overflow-hidden rounded-[2.5rem] shadow-2xl shadow-gray-200/80 bg-gray-50 border border-gray-100">
+          <div className="relative overflow-hidden rounded-[2.5rem] shadow-2xl shadow-gray-200/80 bg-gray-50 border border-gray-100 h-full flex-1">
             <motion.img
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.7, ease: "easeOut" }}
               src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=1200"
               alt="Our creative team at work"
-              className="w-full h-[500px] lg:h-[650px] object-cover origin-center"
+              className="w-full h-full object-cover origin-center"
             />
             {/* Subtle overlay for brand consistency */}
             <div className="absolute inset-0 bg-[#175E75]/5 group-hover:bg-transparent transition-colors duration-500" />
@@ -64,7 +64,7 @@ const TeamSection = () => {
             <h2 className="text-[clamp(1.25rem,4vw,2rem)]  font-black tracking-tighter text-gray-950 leading-[0.95]">
               Meet our <span className={brandTealText}>creative</span> team
             </h2>
-            <div className={`h-1.5 w-24 ${brandTealBg} rounded-full`} />
+        
           </motion.div>
 
           <motion.p
