@@ -1,43 +1,40 @@
 const technologies = [
-  { name: "Bootstrap" },
-  { name: "Node JS" },
-  { name: "Shopify" },
-  { name: "Microsoft Azure" },
-  { name: "Docker" },
-  { name: "Gemini APIs" },
-  { name: "Semantic UI" },
-  { name: "JavaScript" },
-  { name: "Golang" },
-  { name: "CSS3" },
-  { name: "Digital Ocean" },
-  { name: "Jenkins" },
-  { name: "Razorpay" },
-  { name: "AMP" },
-  { name: "TypeScript" },
-  { name: "Python" },
-  { name: "Tailwind CSS" },
-  { name: "Git" },
-  { name: "Electron JS" },
-  { name: "OpenAI APIs" },
-  { name: "Adobe Illustrator" },
-  { name: "WordPress" },
-  { name: "Django" },
-  { name: "GitHub" },
-  { name: "Shadcn UI" },
-  { name: "Stripe" },
-  { name: "Figma" },
-  { name: "Framer" },
+  { name: "MongoDB", logo: "https://cdn.simpleicons.org/mongodb/47A248" },
+  { name: "Express", logo: "https://cdn.simpleicons.org/express/000000" },
+  { name: "React", logo: "https://cdn.simpleicons.org/react/61DAFB" },
+  { name: "Node.js", logo: "https://cdn.simpleicons.org/nodedotjs/339933" },
+  { name: "JavaScript", logo: "https://cdn.simpleicons.org/javascript/F7DF1E" },
+  { name: "TypeScript", logo: "https://cdn.simpleicons.org/typescript/3178C6" },
+  { name: ".NET", logo: "https://cdn.simpleicons.org/dotnet/512BD4" },
+  { name: "C#", logo: "https://cdn.simpleicons.org/csharp/239120" },
+  { name: "Microsoft SQL Server", logo: "https://cdn.simpleicons.org/microsoftsqlserver/CC2927" },
+  { name: "Azure", logo: "https://cdn.simpleicons.org/microsoftazure/0078D4" },
+  { name: "Tailwind CSS", logo: "https://cdn.simpleicons.org/tailwindcss/06B6D4" },
+  { name: "Bootstrap", logo: "https://cdn.simpleicons.org/bootstrap/7952B3" },
+  { name: "WordPress", logo: "https://cdn.simpleicons.org/wordpress/21759B" },
+  { name: "Google Analytics", logo: "https://cdn.simpleicons.org/googleanalytics/E37400" },
+  { name: "Google Tag Manager", logo: "https://cdn.simpleicons.org/googletagmanager/246FDB" },
+  { name: "SEMrush", logo: "https://cdn.simpleicons.org/semrush/FF642D" },
+  { name: "Ahrefs", logo: "https://cdn.simpleicons.org/ahrefs/FF8800" },
+  { name: "Google Ads", logo: "https://cdn.simpleicons.org/googleads/4285F4" },
+  { name: "Figma", logo: "https://cdn.simpleicons.org/figma/F24E1E" },
+  { name: "Adobe Photoshop", logo: "https://cdn.simpleicons.org/adobephotoshop/31A8FF" },
+  { name: "Adobe Illustrator", logo: "https://cdn.simpleicons.org/adobeillustrator/FF9A00" },
+  { name: "Canva", logo: "https://cdn.simpleicons.org/canva" },
+  { name: "Git", logo: "https://cdn.simpleicons.org/git/F05032" },
+  { name: "GitHub", logo: "https://cdn.simpleicons.org/github/181717" },
 ];
 
 const TechCard = ({ tech }) => (
-  <div className="bg-white p-4 rounded-2xl border border-gray-100 flex flex-col items-center justify-center transition-all duration-500 hover:border-(--brand) hover:shadow-2xl brand-shadow hover:-translate-y-2 group min-w-30 h-36">
-    {/* Animated Icon Placeholder */}
-    <div className="w-14 h-14 mb-4 bg-slate-50 rounded-xl flex items-center justify-center font-black text-2xl text-slate-400 group-hover:brand-bg group-hover:text-white transition-all duration-500 shadow-inner">
-      {tech.name.charAt(0)}
+  <div className="bg-white p-4 rounded-2xl border border-gray-100 flex items-center justify-center transition-all duration-500 hover:border-(--brand) hover:shadow-2xl brand-shadow hover:-translate-y-2 group min-w-30 h-28">
+    <div className="w-16 h-16 bg-slate-50 rounded-xl flex items-center justify-center transition-all duration-500 shadow-inner group-hover:bg-[#ecf8fb]">
+      <img
+        src={tech.logo}
+        alt={`${tech.name} logo`}
+        loading="lazy"
+        className="w-9 h-9 object-contain transition-transform duration-300 group-hover:scale-110"
+      />
     </div>
-    <span className="text-xs font-bold text-slate-600 group-hover:brand-text text-center tracking-tight transition-colors duration-300 uppercase">
-      {tech.name}
-    </span>
   </div>
 );
 
