@@ -117,12 +117,7 @@ const PortfolioGrid = () => {
       <div className="absolute bottom-0 left-0 w-80 h-80 bg-cyan-100/20 rounded-full blur-3xl animate-pulse delay-700"></div>
       
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className="text-center mb-10">
-          <span className="inline-block px-4 py-2 rounded-full bg-[#175E75]/10 text-[#175E75] text-sm font-bold mb-4 uppercase tracking-wider">Portfolio</span>
-          <h2 className="text-4xl md:text-5xl font-bold text-black">Featured Projects</h2>
-          <div className="w-16 h-1 bg-gradient-to-r from-[#175E75] to-cyan-400 mx-auto mb-6"></div>
-        </div>
-
+       
         {/* Filter Buttons */}
         <div className="flex flex-wrap justify-center gap-3 mb-16">
           {categories.map((cat) => (

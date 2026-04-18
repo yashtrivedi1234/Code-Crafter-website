@@ -41,14 +41,7 @@ const CultureSection = () => {
       <div className="absolute bottom-0 right-1/4 w-72 h-72 bg-cyan-200/20 rounded-full blur-3xl animate-pulse delay-500"></div>
       
       <div className="max-w-6xl mx-auto relative z-10">
-        <div className="text-center mb-10">
-          <span className="inline-block px-4 py-2 rounded-full bg-[#175E75]/10 text-[#175E75] text-sm font-bold mb-4 uppercase tracking-wider">Our Culture</span>
-          <h2 className="text-4xl md:text-5xl font-bold text-black">What We Stand For</h2>
-          <div className="w-16 h-1 bg-gradient-to-r from-[#175E75] to-cyan-400 mx-auto mb-6"></div>
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto leading-relaxed">
-            Our company values define who we are and how we work together every day
-          </p>
-        </div>
+        
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {values.map((value, index) => {

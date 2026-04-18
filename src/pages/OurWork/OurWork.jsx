@@ -10,7 +10,7 @@ const OurWork = () => {
         title="Our Work"
         subtitle="Explore our portfolio of innovative projects and successful partnerships"
       />
-      <Statistics />
+      {/* <Statistics /> */}
       <PortfolioGrid />
     </div>
   );

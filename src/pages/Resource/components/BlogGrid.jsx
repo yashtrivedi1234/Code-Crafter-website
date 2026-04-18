@@ -107,14 +107,7 @@ const BlogGrid = () => {
 
       <div className="max-w-6xl mx-auto relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <span className="inline-block px-4 py-2 rounded-full bg-[#175E75]/10 text-[#175E75] text-sm font-bold mb-4 uppercase tracking-wider">Blog & Resources</span>
-          <h2 className="text-4xl md:text-5xl font-bold text-black mb-4">Latest Articles & Insights</h2>
-          <div className="w-16 h-1 bg-gradient-to-r from-[#175E75] to-cyan-400 mx-auto mb-6"></div>
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto leading-relaxed">
-            Stay updated with industry insights, tips, and best practices to grow your business
-          </p>
-        </div>
+       
 
         {/* Filter Buttons */}
         <div className="flex flex-wrap justify-center gap-3 mb-16">
