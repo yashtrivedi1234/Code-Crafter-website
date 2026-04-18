@@ -41,25 +41,28 @@ const CaseStudies = () => {
     <>
       <style>{cardHoverStyles}</style>
 
-      <section className="px-4 sm:px-12 lg:px-24 py-10 lg:py-20 bg-white font-sans text-gray-900">
-        <div className="max-w-350 mx-auto">
+      <section className="relative min-h-screen px-4 py-8 bg-gradient-to-b from-white via-slate-50 to-white font-sans text-gray-900 overflow-hidden">
+        {/* Animated background elements */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-blue-100/20 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-0 left-0 w-80 h-80 bg-cyan-100/20 rounded-full blur-3xl animate-pulse delay-700"></div>
+
+        <div className="max-w-7xl mx-auto relative z-10">
 
           {/* Header */}
-          <div className="mb-10 lg:mb-16">
-            <p className="brand-text text-[0.7rem] font-semibold uppercase tracking-widest mb-2">
-              Our Case Studies
-            </p>
-            <h2 className="text-[clamp(1.25rem,4vw,2rem)] font-bold leading-tight tracking-tight">
-              Real-time Case Studies
+          <div className="text-center mb-10">
+            <span className="inline-block px-4 py-2 rounded-full bg-[#175E75]/10 text-[#175E75] text-sm font-bold uppercase tracking-wider">Case Studies</span>
+            <h2 className="text-[clamp(1.75rem,4vw,2.5rem)] font-bold leading-tight tracking-tight text-black">
+              Real-time <span className="text-[#175E75]">Case Studies</span>
             </h2>
+      
           </div>
 
           {/* Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {caseStudiesData.map((study) => (
               <div
                 key={study.id}
-                className="cs-card relative overflow-hidden bg-gray-100 border border-gray-100 h-80 sm:h-90 lg:h-110"
+                className="cs-card relative overflow-hidden rounded-2xl bg-gray-100 border border-gray-200 h-96 shadow-lg hover:shadow-2xl hover:border-[#175E75] transition-all duration-500 group"
               >
                 {/* Image */}
                 <img
@@ -69,23 +72,20 @@ const CaseStudies = () => {
                 />
 
                 {/* Overlay */}
-                <div
-                  className="cs-overlay absolute inset-0"
-                  style={{ background: 'rgba(0,0,0,0.22)' }}
-                />
+                
 
                 {/* Content Box */}
-                <div className="absolute bottom-0 right-0 w-[85%] bg-white shadow-[0_-4px_32px_rgba(0,0,0,0.12)] p-4 lg:p-6">
-                  <h3 className="cs-card-title text-sm lg:text-lg font-bold leading-snug mb-3 pr-4 text-slate-900">
+                <div className="absolute bottom-0 right-0 w-full sm:w-[90%] bg-white shadow-2xl p-6 lg:p-8 rounded-t-2xl">
+                  <h3 className="cs-card-title text-base lg:text-lg font-bold leading-snug mb-4 text-black">
                     {study.title}
                   </h3>
 
-                  <hr className="border-gray-200 mb-3" />
+                  <hr className="border-gray-200 mb-4" />
 
-                  <div className="flex flex-col gap-1 min-h-12 mb-4">
+                  <div className="flex flex-col gap-2 min-h-12 mb-5">
                     {study.stats.map((stat, i) => (
-                      <p key={i} className="flex items-start gap-2 text-xs lg:text-sm leading-relaxed text-gray-700">
-                        <span className="w-1.25 h-1.25 rounded-full brand-bg shrink-0 mt-1.25" />
+                      <p key={i} className="flex items-start gap-2 text-xs lg:text-sm leading-relaxed text-gray-700 font-medium">
+                        <span className="w-2 h-2 rounded-full bg-[#175E75] shrink-0 mt-1.5" />
                         {stat}
                       </p>
                     ))}
@@ -93,9 +93,9 @@ const CaseStudies = () => {
 
                   <a
                     href="#"
-                    className="inline-flex items-center gap-1 text-xs font-bold border-b-2 border-slate-900 pb-px transition-colors duration-300 hover:brand-text hover:border-(--brand) text-slate-900 no-underline"
+                    className="inline-flex items-center gap-2 text-sm font-bold text-[#175E75] border-b-2 border-[#175E75] pb-1 transition-colors duration-300 hover:opacity-80"
                   >
-                    Read more <ArrowUpRight size={14} />
+                    Read more <ArrowUpRight size={16} />
                   </a>
                 </div>
               </div>

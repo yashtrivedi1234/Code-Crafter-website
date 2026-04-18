@@ -22,7 +22,7 @@ const TeamSection = () => {
   };
 
   return (
-    <section className="relative bg-white text-gray-900 flex items-center justify-center px-6 py-10 md:py-14 overflow-hidden selection:bg-cyan-100 selection:text-(--brand)">
+    <section className="relative bg-white text-gray-900 flex items-center justify-center px-6 py-8 overflow-hidden selection:bg-cyan-100 selection:text-(--brand)">
       <Motion.div
         variants={containerVariants}
         initial="hidden"
@@ -31,7 +31,10 @@ const TeamSection = () => {
         className="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-stretch relative z-10"
       >
         {/* Left Side: Unsplash Image Container */}
-        <Motion.div variants={itemVariants} className="relative group h-full flex flex-col">
+        <Motion.div
+          variants={itemVariants}
+          className="relative group h-full flex flex-col"
+        >
           {/* Subtle background glow - Updated to Teal tint */}
           <div className="absolute -inset-4 bg-cyan-50/50 rounded-[3rem] opacity-0 group-hover:opacity-100 transition-opacity duration-700 ease-in-out -z-10" />
 
@@ -57,7 +60,6 @@ const TeamSection = () => {
             <h2 className="text-[clamp(1.25rem,4vw,2rem)]  font-black tracking-tighter text-gray-950 leading-[0.95]">
               Meet our <span className="brand-text">creative</span> team
             </h2>
-        
           </Motion.div>
 
           <Motion.p
@@ -97,9 +99,7 @@ const TeamSection = () => {
         transition={{ delay: 1, duration: 0.6, type: "spring" }}
         className="fixed right-0 top-1/2 -translate-y-1/2 z-50 flex"
       >
-        <button
-          className="brand-bg hover:opacity-90 text-white py-8 px-4 rounded-l-2xl font-bold tracking-widest shadow-2xl hover:-translate-x-2 transition-all duration-300 group flex items-center justify-center border-y border-l border-white/20"
-        >
+        <button className="brand-bg hover:opacity-90 text-white py-8 px-4 rounded-l-2xl font-bold tracking-widest shadow-2xl hover:-translate-x-2 transition-all duration-300 group flex items-center justify-center border-y border-l border-white/20">
           <span className="[writing-mode:vertical-rl] rotate-180 flex items-center gap-4">
             Request a Callback
             <span className="inline-block w-2.5 h-2.5 bg-cyan-300 rounded-full animate-ping" />

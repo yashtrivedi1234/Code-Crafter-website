@@ -41,40 +41,52 @@ const features = [
 
 const CodeCrafterLanding = () => {
   return (
-    <div className="min-h-screen bg-white text-slate-900 px-4 py-12 sm:px-8 sm:py-16 lg:px-16 lg:py-20">
-      <div className="max-w-7xl mx-auto">
+    <div className="relative min-h-screen bg-gradient-to-b from-white via-slate-50 to-white text-slate-900 px-4 py-8 overflow-hidden">
+      {/* Animated background elements */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-blue-100/20 rounded-full blur-3xl animate-pulse"></div>
+      <div className="absolute bottom-0 left-0 w-80 h-80 bg-cyan-100/20 rounded-full blur-3xl animate-pulse delay-700"></div>
+
+      <div className="max-w-7xl mx-auto relative z-10">
 
         {/* Header */}
-        <div className="text-center mb-10 sm:mb-16 lg:mb-20">
-          <h2 className="text-[clamp(1.25rem,4vw,2rem)] font-extrabold leading-tight tracking-tight max-w-4xl mx-auto">
+        <div className="text-center mb-10">
+          <span className="inline-block px-4 py-2 rounded-full bg-[#175E75]/10 text-[#175E75] text-sm font-bold uppercase tracking-wider">Why Us</span>
+          <h2 className="text-[clamp(1.75rem,4vw,2.5rem)] font-bold leading-tight tracking-tight max-w-4xl mx-auto text-black">
             Why Code Crafter is the Top Web Development Agency in{" "}
-            <span className="brand-text">Lucknow?</span>
+            <span className="text-[#175E75]">Lucknow?</span>
           </h2>
         </div>
 
         {/* Feature Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 border-t-2 border-l-2 border-slate-900">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {features.map((feature, index) => (
             <div
               key={index}
-              className="border-r-2 border-b-2 border-slate-900 p-5 sm:p-7 lg:p-10
-                         transition-all duration-200 ease-in-out
-                         hover:bg-slate-50 hover:-translate-y-0.5 group"
+              className="p-6 sm:p-8 lg:p-10 rounded-2xl bg-white border-2 border-gray-200 
+                         transition-all duration-500 group cursor-pointer
+                         hover:border-[#175E75] hover:shadow-2xl hover:-translate-y-4 
+                         hover:bg-blue-50/50"
             >
-              <h3 className="text-base sm:text-lg lg:text-xl font-bold text-slate-900 mb-3
-                             group-hover:brand-text transition-colors duration-300 leading-snug">
+              {/* Icon with gradient background */}
+              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-xl bg-gradient-to-br from-[#175E75] to-cyan-500 flex items-center justify-center mb-6 text-2xl shadow-lg group-hover:scale-110 transition-transform duration-300">
+                📊
+              </div>
+
+              <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-black mb-3
+                             group-hover:text-[#175E75] transition-colors duration-300 leading-snug">
                 {feature.title}
               </h3>
-              <p className="text-xs sm:text-sm text-slate-500 leading-relaxed mb-4 sm:mb-6">
+              <p className="text-sm sm:text-base text-gray-600 leading-relaxed mb-4 sm:mb-6
+                           group-hover:text-gray-700 transition-colors">
                 {feature.description}
               </p>
               <ul className="space-y-2">
                 {feature.points.map((point, idx) => (
                   <li
                     key={idx}
-                    className="flex items-start gap-2 text-[10px] sm:text-[11px] font-bold uppercase tracking-widest text-slate-700"
+                    className="flex items-center gap-3 text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-700"
                   >
-                    <span className="mt-1 w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full brand-bg shrink-0" />
+                    <span className="w-2 h-2 rounded-full bg-[#175E75] shrink-0" />
                     {point}
                   </li>
                 ))}
@@ -88,12 +100,12 @@ const CodeCrafterLanding = () => {
           <button
             className="group flex items-center justify-center gap-2 sm:gap-3
                        w-full sm:w-auto
-                       px-6 py-4 sm:px-10 sm:py-5
+                       px-8 py-4 sm:px-12 sm:py-5
                        text-sm sm:text-base lg:text-lg font-bold
-                       bg-slate-900 text-white
-                       hover:brand-bg
-                       transition-all duration-300
-                       shadow-lg brand-shadow"
+                       bg-[#175E75] text-white
+                       rounded-xl transition-all duration-300
+                       hover:bg-[#175E75]/90 hover:shadow-2xl
+                       shadow-lg"
           >
             Start Your Project With Us
             <ArrowUpRight
@@ -102,7 +114,7 @@ const CodeCrafterLanding = () => {
                          transition-transform duration-300"
             />
           </button>
-          <p className="mt-3 sm:mt-4 text-xs sm:text-sm text-slate-500 font-medium text-center">
+          <p className="mt-4 sm:mt-5 text-xs sm:text-sm text-slate-600 font-medium text-center">
             Book a 30-min Free Consultation
           </p>
         </div>

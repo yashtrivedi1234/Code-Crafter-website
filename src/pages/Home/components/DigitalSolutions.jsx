@@ -63,29 +63,10 @@ export default function DigitalSolutions() {
   const active = features[activeIndex];
 
   return (
-    <section
-      className="min-h-screen bg-slate-50 text-gray-900 overflow-hidden relative py-8 px-4"
-    >
-      {/* Background grid */}
-      <div
-        className="pointer-events-none absolute inset-0 opacity-[0.04] z-0"
-        style={{
-          backgroundImage:
-            "linear-gradient(#000 1px,transparent 1px),linear-gradient(90deg,#000 1px,transparent 1px)",
-          backgroundSize: "60px 60px",
-        }}
-      />
-
-      {/* Glow blob */}
-      <motion.div
-        className="pointer-events-none absolute top-0 right-0 rounded-full z-0 w-[260px] h-[260px] md:w-[400px] md:h-[400px] lg:w-[600px] lg:h-[600px]"
-        style={{
-          background: "radial-gradient(circle, rgba(var(--brand-rgb), 0.15) 0%, transparent 70%)",
-          transform: "translate(30%,-30%)",
-        }}
-        animate={{ scale: [1, 1.1, 1], opacity: [0.6, 1, 0.6] }}
-        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-      />
+    <section className="relative min-h-screen bg-gradient-to-b from-white via-slate-50 to-white text-gray-900 overflow-hidden py-8 px-4">
+      {/* Animated background elements */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-blue-100/20 rounded-full blur-3xl animate-pulse"></div>
+      <div className="absolute bottom-0 left-0 w-80 h-80 bg-cyan-100/20 rounded-full blur-3xl animate-pulse delay-700"></div>
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* ── Header ── */}
@@ -93,37 +74,25 @@ export default function DigitalSolutions() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
-          className="mb-10 lg:mb-20 text-center"
+          className="mb-10 text-center"
         >
           {/* Eyebrow */}
-          <p
-            className="flex items-center justify-center gap-3 mb-3 text-[0.7rem] font-bold uppercase tracking-[0.2em] brand-text"
-          >
-            <span className="block h-0.5 w-5 lg:w-8 brand-bg" />
+          <p className="flex items-center justify-center gap-3 text-sm font-bold uppercase tracking-[0.2em] text-[#175E75]">
+            <span className="h-0.5 w-8 bg-[#175E75]" />
             What We Offer
-            <span className="block h-0.5 w-5 lg:w-8 brand-bg" />
+            <span className="h-0.5 w-8 bg-[#175E75]" />
           </p>
 
           {/* Heading */}
-          <h2 className="font-extrabold max-w-2xl mx-auto leading-[1.1] text-[clamp(1.25rem,4vw,2rem)]">
-            End-to-End{" "}
-            <span className="relative inline-block whitespace-nowrap">
-              <span className="relative z-10 brand-text">
-                Digital
-              </span>
-              <motion.span
-                className="absolute inset-0 rounded-md -mx-1 brand-overlay"
-                animate={{ scaleX: [0.95, 1.05, 0.95] }}
-                transition={{ duration: 3, repeat: Infinity }}
-              />
-            </span>{" "}
-            Solutions for Growing Businesses
+          <h2 className="font-extrabold max-w-3xl mx-auto leading-tight text-[clamp(1.75rem,4vw,2.5rem)] text-black mb-6">
+            End-to-End <span className="text-[#175E75]">Digital Solutions</span>{" "}
+            for Growing Businesses
           </h2>
+        
         </motion.div>
 
         {/* ── Main layout ── */}
         <div className="grid grid-cols-1 lg:grid-cols-[5fr_7fr] gap-6 lg:gap-14 items-stretch">
-
           {/* ── Feature list ── */}
           <div className="order-2 lg:order-1 flex flex-col gap-2 h-full">
             {features.map((feature, index) => {
@@ -185,7 +154,9 @@ export default function DigitalSolutions() {
                         <motion.span
                           className="text-[0.58rem] lg:text-[0.625rem] px-2 py-0.5 rounded-full border font-bold tracking-wide shrink-0 self-start"
                           animate={{
-                            borderColor: isActive ? BRAND_BORDER : "rgba(0,0,0,0.1)",
+                            borderColor: isActive
+                              ? BRAND_BORDER
+                              : "rgba(0,0,0,0.1)",
                             color: isActive ? BRAND : "#6b7280",
                             backgroundColor: isActive
                               ? "rgba(var(--brand-rgb), 0.05)"
@@ -232,7 +203,12 @@ export default function DigitalSolutions() {
                       }}
                       transition={{ duration: 0.3 }}
                     >
-                      <svg width="16" height="16" viewBox="0 0 14 14" fill="none">
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 14 14"
+                        fill="none"
+                      >
                         <path
                           d="M1 7h12M7 1l6 6-6 6"
                           stroke="currentColor"

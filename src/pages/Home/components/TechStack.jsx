@@ -26,13 +26,13 @@ const technologies = [
 ];
 
 const TechCard = ({ tech }) => (
-  <div className="bg-white p-4 rounded-2xl border border-gray-100 flex items-center justify-center transition-all duration-500 hover:border-(--brand) hover:shadow-2xl brand-shadow hover:-translate-y-2 group min-w-30 h-28">
-    <div className="w-16 h-16 bg-slate-50 rounded-xl flex items-center justify-center transition-all duration-500 shadow-inner group-hover:bg-[#ecf8fb]">
+  <div className="bg-white p-4 sm:p-5 rounded-2xl border-2 border-gray-200 flex items-center justify-center transition-all duration-500 hover:border-[#175E75] hover:shadow-2xl hover:-translate-y-2 group min-w-28 h-28 sm:h-32">
+    <div className="w-14 sm:w-16 h-14 sm:h-16 bg-slate-50 rounded-xl flex items-center justify-center transition-all duration-500 shadow-sm group-hover:bg-blue-50">
       <img
         src={tech.logo}
         alt={`${tech.name} logo`}
         loading="lazy"
-        className="w-9 h-9 object-contain transition-transform duration-300 group-hover:scale-110"
+        className="w-8 sm:w-9 h-8 sm:h-9 object-contain transition-transform duration-300 group-hover:scale-110"
       />
     </div>
   </div>
@@ -40,21 +40,23 @@ const TechCard = ({ tech }) => (
 
 const TechStack = () => {
   return (
-    <section className="py-8 px-6 bg-[#fcfdfe]">
-      <div className="max-w-7xl mx-auto">
+    <section className="relative min-h-screen py-8 px-4 bg-gradient-to-b from-white via-slate-50 to-white overflow-hidden">
+      {/* Animated background elements */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-blue-100/20 rounded-full blur-3xl animate-pulse"></div>
+      <div className="absolute bottom-0 left-0 w-80 h-80 bg-cyan-100/20 rounded-full blur-3xl animate-pulse delay-700"></div>
+
+      <div className="max-w-7xl mx-auto relative z-10">
         {/* Header Section */}
         <div className="text-center mb-10">
-          <span className="brand-text text-sm font-bold uppercase tracking-[0.3em] block">
-            Our Tech Stack
-          </span>
-          <h2 className="text-[clamp(1.25rem,4vw,2rem)] font-black text-slate-900 tracking-tighter">
-            Robust Tools & <span className="brand-text">Technologies</span>{" "}
-            We Work
+          <span className="inline-block px-4 py-2 rounded-full bg-[#175E75]/10 text-[#175E75] text-sm font-bold uppercase tracking-wider">Tech Stack</span>
+          <h2 className="text-[clamp(1.75rem,4vw,2.5rem)] font-bold text-black tracking-tight">
+            Robust Tools & <span className="text-[#175E75]">Technologies</span> We Work With
           </h2>
+        
         </div>
 
         {/* Grid System */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 sm:gap-6">
           {technologies.map((tech, index) => (
             <TechCard key={index} tech={tech} />
           ))}

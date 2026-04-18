@@ -146,7 +146,7 @@ export default function LogoFlipGrid() {
         </span>
 
         {/* h2 — font-family & font-size from global h2 */}
-        <h2 className="text-gray-900 leading-tight mb-4 tracking-tighter">
+        <h2 className="text-gray-900 leading-tight tracking-tighter">
           Serving 500+ Clients from{" "}
           <span className="brand-text">Startups to Enterprises</span>
         </h2>

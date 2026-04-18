@@ -23,46 +23,49 @@ const TestimonialSection = () => {
   ];
 
   return (
-    <div className="bg-[#fcfdfe] min-h-screen py-8 px-6 relative">
+    <div className="relative min-h-screen bg-gradient-to-b from-white via-slate-50 to-white py-8 px-4 overflow-hidden">
+      {/* Animated background elements */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-blue-100/20 rounded-full blur-3xl animate-pulse"></div>
+      <div className="absolute bottom-0 left-0 w-80 h-80 bg-cyan-100/20 rounded-full blur-3xl animate-pulse delay-700"></div>
+
       {/* Section Heading */}
-      <div className="text-center mb-10">
-        <span className="brand-text text-sm font-bold uppercase tracking-[0.3em] block">
+      <div className="text-center mb-10 relative z-10">
+        <span className="inline-block px-4 py-2 rounded-full bg-[#175E75]/10 text-[#175E75] text-sm font-bold uppercase tracking-wider">
           Testimonials
         </span>
-        <h2 className="text-[clamp(1.25rem,4vw,2rem)] font-black text-gray-900 tracking-tighter">
-          What our <span className="brand-text">clients</span> say
+        <h2 className="text-[clamp(1.75rem,4vw,2.5rem)] font-bold text-black tracking-tight">
+          What our <span className="text-[#175E75]">clients</span> say
         </h2>
-        
       </div>
 
       {/* Cards Container */}
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
         {reviews.map((review) => (
           <div
             key={review.id}
-            className="bg-white border border-gray-100 rounded-[2.5rem] p-10 shadow-xl shadow-gray-200/40 flex flex-col justify-between transition-all duration-500 hover:shadow-2xl brand-shadow group"
+            className="bg-white border-2 border-gray-200 rounded-2xl p-8 md:p-10 shadow-lg transition-all duration-500 hover:border-[#175E75] hover:shadow-2xl hover:-translate-y-4 group flex flex-col justify-between"
           >
             <div>
               <div className="flex justify-between items-start mb-6">
                 <div>
-                  <h3 className="text-xl font-bold text-gray-900 group-hover:brand-text transition-colors">
+                  <h3 className="text-lg md:text-xl font-bold text-black group-hover:text-[#175E75] transition-colors duration-300">
                     {review.name}
                   </h3>
-                  <p className="brand-text text-xs font-bold uppercase tracking-wider mt-1">
+                  <p className="text-[#175E75] text-xs font-bold uppercase tracking-wider mt-2">
                     {review.company}
                   </p>
-                  <div className="flex mt-3 gap-0.5">
+                  <div className="flex mt-3 gap-1">
                     {[...Array(5)].map((_, i) => (
                       <Star
                         key={i}
-                        size={14}
+                        size={16}
                         className="fill-yellow-400 text-yellow-400"
                       />
                     ))}
                   </div>
                 </div>
                 {/* Google Logo */}
-                <div className="bg-gray-50 p-2 rounded-xl group-hover:bg-white transition-colors">
+                <div className="bg-gray-50 p-2 rounded-lg group-hover:bg-blue-50 transition-colors">
                   <svg className="w-6 h-6" viewBox="0 0 24 24">
                     <path
                       fill="#4285F4"
@@ -83,7 +86,7 @@ const TestimonialSection = () => {
                   </svg>
                 </div>
               </div>
-              <p className="text-gray-600 leading-relaxed text-[15px] font-medium">
+              <p className="text-gray-700 leading-relaxed text-sm md:text-base font-medium">
                 "{review.text}"
               </p>
             </div>
@@ -92,15 +95,11 @@ const TestimonialSection = () => {
       </div>
 
       {/* Navigation Arrows */}
-      <div className="flex justify-center gap-4 mt-16">
-        <button
-          className="p-4 border-2 border-slate-900 rounded-full hover:text-white hover:bg-(--brand) transition-all duration-300 shadow-lg"
-        >
+      <div className="flex justify-center gap-4 mt-12 md:mt-16 relative z-10">
+        <button className="p-3 md:p-4 border-2 border-[#175E75] rounded-full text-[#175E75] hover:text-white hover:bg-[#175E75] transition-all duration-300 shadow-lg hover:shadow-xl">
           <ChevronLeft size={20} />
         </button>
-        <button
-          className="p-4 border-2 border-slate-900 rounded-full hover:text-white hover:bg-(--brand) transition-all duration-300 shadow-lg"
-        >
+        <button className="p-4 border-2 border-slate-900 rounded-full hover:text-white hover:bg-(--brand) transition-all duration-300 shadow-lg">
           <ChevronRight size={20} />
         </button>
       </div>
