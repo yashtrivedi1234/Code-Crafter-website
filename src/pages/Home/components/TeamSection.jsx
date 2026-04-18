@@ -93,19 +93,7 @@ const TeamSection = () => {
       </Motion.div>
 
       {/* Floating Request Callback Tab - Synced with Teal */}
-      <Motion.div
-        initial={{ x: 100 }}
-        animate={{ x: 0 }}
-        transition={{ delay: 1, duration: 0.6, type: "spring" }}
-        className="fixed right-0 top-1/2 -translate-y-1/2 z-50 flex"
-      >
-        <button className="brand-bg hover:opacity-90 text-white py-8 px-4 rounded-l-2xl font-bold tracking-widest shadow-2xl hover:-translate-x-2 transition-all duration-300 group flex items-center justify-center border-y border-l border-white/20">
-          <span className="[writing-mode:vertical-rl] rotate-180 flex items-center gap-4">
-            Request a Callback
-            <span className="inline-block w-2.5 h-2.5 bg-cyan-300 rounded-full animate-ping" />
-          </span>
-        </button>
-      </Motion.div>
+      
     </section>
   );
 };
